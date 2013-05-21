@@ -1,0 +1,97 @@
+/**
+* Boilerplate  css
+*
+*
+* @author splitfire - http://splitfire.fr
+* @version 1.0
+*
+*/
+
+/*------------------------------------*\
+    Var
+\*------------------------------------*/
+
+@import		"_base/variable";
+
+/*------------------------------------*\
+    Mixin
+\*------------------------------------*/
+
+@import 	"_mixin/helpers";
+@import 	"_mixin/mixin";
+
+/*------------------------------------*\
+    base classes
+\*------------------------------------*/
+
+/**
+ * Splitfire -  Reset
+ *
+ * Based on Eric Meyer Reset http://meyerweb.com/eric/tools/css/reset/
+ * Modified by Splitfire
+ * @version 1.0
+ */
+ 
+@import 	"_base/reset";
+@import		"_base/typo";
+@import		"_base/global";
+
+
+/*------------------------------------*\
+    JQuery classes
+\*------------------------------------*/
+
+@import		"_jquery/chosen-j";
+@import		"_jquery/colorpicker";
+@import		"_jquery/mCustomScrollbar";
+@import		"_jquery/notification";
+@import		"_jquery/sf-checkbox";
+@import		"_jquery/tinyscroll";
+@import		"_jquery/vegas";
+@import		"_jquery/slider";
+
+/* Choose fancybox theme*/
+@import		"_jquery/fancybox_base"; // Default theme
+@import		"_jquery/fancybox"; // Splitfire theme
+
+
+/*------------------------------------*\
+    jQuery ui classes
+\*------------------------------------*/
+
+@import		"_jquery/_plupload-queue";
+@import		"_jquery/_plupload-ui";
+@import		"_jquery/_ui-lightness";
+@import		"_jquery/_ui-smoothness";
+@import		"_jquery/slider-custom";
+@import		"_jquery/ui-custom";
+
+
+/*------------------------------------*\
+    Application classes
+\*------------------------------------*/
+
+
+@import		"_application/layout";
+@import		"_application/ui";
+@import		"_application/admin";
+@import		"_application/front";
+@import		"_application/back";
+
+
+/*------------------------------------*\
+    Helper classes module
+\*------------------------------------*/
+
+
+@import		"_helpers/animation";
+@import		"_helpers/back-top";
+@import		"_helpers/button";
+@import		"_helpers/dropdown";
+@import 	"_helpers/form";
+@import		"_helpers/grid";
+@import		"_helpers/responsive";
+@import		"_helpers/sprite";
+@import		"_helpers/table";
+
+ 

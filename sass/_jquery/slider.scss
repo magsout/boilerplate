@@ -1,0 +1,123 @@
+/**
+* Slider classes
+*
+* @date 	26/04/2013
+* @author splitfire - http://splitfire.fr
+* @version 1.0
+*http://symmetrycode.com/full-page-slider-html5-css3-js/
+*
+*/ 
+ 
+ 
+ //Variable
+$width 	: 100%; 
+$height : 565px;
+
+/* Slider
+----------------------------------*/
+#slider
+{
+	position: relative;
+	background-color: #fff;
+	@include box-shadow(0px 1px 5px rgba(0, 0, 0, 0.9));
+
+	.slider_wrapper
+	{
+		position: relative;
+		width: $width;
+		//height:$height;
+	}
+	.slides_container
+	{
+		width:$width;
+		//height:$height;
+		overflow:hidden;
+	}
+	.slider_image
+	{
+		width:$width;
+		//height:$height;
+	}
+	img
+	{
+		width:$width;
+	}
+
+}
+
+/* Slider toolbar (pagination & navigation)
+----------------------------------*/
+//$slider-spacing: 50px;
+//@import "../images/slider/*.png";
+
+#slider 
+{
+	.slider_arrow
+	{
+		position: absolute;
+		padding: 6px 3px;
+		top: ($height - slider-sprite-height(slider_arrow_prev)) / 2;		
+		cursor: pointer;
+		z-index: 999;
+		background-color: #fff;
+		text-indent: 9999px;
+		overflow: hidden;
+	}
+	.slider_arrow_prev
+	{
+		left: -8px;
+		@include border-radius(0 20px 20px 0);
+		//@include slider-sprite(slider_arrow_prev);
+		width: slider-sprite-width(slider_arrow_prev);
+		height: slider-sprite-height(slider_arrow_prev);
+		// base : background-position: 0 0;
+		background-position: 2px 6px;		
+	}
+	.slider_arrow_next
+	{
+		right: -8px;
+		@include border-radius(20px 0 0 20px);
+		//@include slider-sprite(slider_arrow_next);
+		width: slider-sprite-width(slider_arrow_next);
+		height: slider-sprite-height(slider_arrow_next);
+		// base : background-position: 0 -69px;
+		background-position: 4px -63px;
+	}
+}
+/* Pagination */
+#slider 
+{
+	.slider_pagination
+	{
+		position: absolute;
+		bottom: 16px;
+		right: 10px;
+		z-index: 999;
+	}
+	.slider_pagination li 
+	{
+		float:left;
+		margin-right:7px;/*11px;*/
+	}
+	.slider_pagination li a 
+	{
+		display:block;
+		padding:2px 6px;
+		position:relative;
+		overflow:hidden;
+		text-decoration: none;
+		font-size: 12px;
+		background-color: #fff;
+		border: 1px solid #000;
+		color: #000;
+	}
+	
+	.slider_pagination li.current a,
+	.slider_pagination li a:hover
+	{
+		text-decoration: none;
+		background-color: #000;
+		border: 1px solid #fff;
+		color: #fff;
+	}
+}

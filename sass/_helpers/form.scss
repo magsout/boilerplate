@@ -1,0 +1,220 @@
+/**
+* Form classes
+*
+* @author splitfire - http://splitfire.fr
+* @version 1.0
+*
+*/ 
+
+
+/* Input decoration
+----------------------------------*/
+input[type="text"], 
+input[type="password"], 
+textarea, input[type="file"], 
+input[type="email"], 
+input[type="url"], 
+input[type="number"],
+input[type="tel"]
+{
+	display: inline-block;
+	background-color: #fffff;
+	border: 1px solid #acacac;
+	outline: none;
+	/* padding left & right en px (% ne fonctionne pas) */
+	padding: 8px 12px;
+	font-size: 13px;
+	color: #222;
+}
+
+input[type="text"]:focus, 
+input[type="password"]:focus, 
+textarea:focus, input[type="file"]:focus, 
+input[type="email"]:focus, 
+input[type="url"]:focus, 
+input[type="number"]:focus,
+input[type="tel"]:focus
+{
+	border-color: rgba(53, 122, 232, 0.7);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(53, 122, 232, 0.7);
+    outline: 0 none;	
+}
+
+/* decoration formulaire
+__________________________*/
+
+.required
+{
+	color: #DD1919;
+}
+
+
+/* Formulaire inline
+__________________________*/
+.form-line
+{
+	line-height: normal;
+	& label
+	{
+		display: block;
+		margin-bottom: 10px;
+		clear: both;
+	}
+	& .input
+	{
+		margin-bottom:15px;
+	}
+	& .button
+	{	
+		margin: 20px 0;	
+	}
+}
+
+/* Formulaire horizontal
+__________________________*/
+.form-horizontal
+{
+
+	margin: 0 0 20px 0; 
+
+	.group 
+	{
+		margin-bottom: 15px;
+			
+		&:after
+		{
+			clear: both;
+		}    	
+    	& > label
+		{
+			//cursor: pointer;
+			display: block;
+			float: left;
+			width:160px;
+			padding-top: 5px;
+			text-align: right;
+		}
+    }
+	& .input
+	{
+		margin-left:200px;
+		
+		& input,
+		  select,
+		  .chzn-container,
+		  .btn
+		  {
+			  margin-bottom:10px;
+		  }
+		& p.information
+		{
+			margin-top: -5px;
+		}
+	}
+	& .button
+	{
+		margin:20px 0 0 200px;
+	}
+}
+
+
+/* Input size
+----------------------------------*/
+.sf-input-x-small
+{
+	width: 50px;
+}
+.sf-input-small
+{
+	width: 100px;
+}
+.sf-input-medium
+{
+	width: 200px;
+}
+.sf-input-x-medium
+{
+	width: 330px;
+}
+.sf-input-large
+{
+	width: 350px;
+}
+.sf-input-x-large
+{
+	width: 400px;
+}
+/* @add + */
+$class-slug: sf-input;
+@for $i from 1 through 10
+{
+	.#{$class-slug}-#{$i}
+	{
+		width: 10% * $i;
+	}	
+}
+.sf-input-auto
+{
+	width:100%;
+}
+
+
+/* Caret CSS
+----------------------------------*/
+.sf_caret_right
+{
+	vertical-align: middle;
+	border-top: 6px solid transparent;
+	border-bottom: 6px solid transparent;
+    border-left: 6px solid #000;
+    content: "";
+    display: inline-block;
+    height: 0;
+    width: 0;
+    @include opacity(.5);
+}
+
+.sf_caret_left
+{
+	vertical-align: middle;
+	border-top: 6px solid transparent;
+	border-bottom: 6px solid transparent;
+    border-right: 6px solid #fff;
+    content: "";
+    display: inline-block;
+    height: 0;
+    width: 0;
+    @include opacity(.5);
+}
+.sf_caret_top
+{
+	vertical-align: middle;
+	border-left: 6px solid transparent;
+	border-right: 6px solid transparent;
+    border-bottom: 6px solid #000;
+    content: "";
+    display: inline-block;
+    height: 0;
+    width: 0;
+    @include opacity(.5);
+
+}
+.sf_caret_bottom
+{
+	vertical-align: middle;
+	border-right: 6px solid transparent;
+	border-left: 6px solid transparent;
+    border-top: 6px solid #000;
+    content: "";
+    display: inline-block;
+    height: 0;
+    width: 0;
+    @include opacity(.5);
+}
+/*
+------------------------------------*/
+.sf-input-inline
+{
+	display: inline-block;
+	vertical-align: middle;	
+}

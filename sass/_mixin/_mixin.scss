@@ -1,0 +1,174 @@
+/**
+* Mixin
+*
+* @author splitfire - http://splitfire.fr
+* @version 1.0
+*
+*/ 
+
+/* Mixin by Compass
+-------------------- */
+
+@import "compass/css3/transition";
+@import "compass/css3/box-shadow";
+@import "compass/css3/border-radius";
+@import "compass/css3/transform";
+@import "compass/css3/images";
+@import "compass/css3/user-interface";
+@import "compass/typography/text/replacement";
+@import "compass/css3/opacity";
+@import "compass/css3/box-sizing";
+
+
+/* Mixin by Splitfire
+-------------------- */
+ 
+@mixin backface($state)
+{
+	-webkit-backface-visibility: $state;
+	   -moz-backface-visibility: $state;
+	   	-ms-backface-visibility: $state;
+	  		backface-visibility: $state;
+}
+
+@mixin transform-style($value)
+{
+	-webkit-transform-style: $value;
+	   -moz-transform-style: $value;
+	    -ms-transform-style: $value;
+		    transform-style: $value;
+}
+@mixin background-color-rgba($color, $opacity)
+{
+
+	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=#{$opacity * 100});
+	background-color: $color;	
+	background-color: rgba($color, $opacity);
+}
+
+@mixin text()
+{
+		word-wrap: break-word;
+	-webkit-hyphens: auto;
+	   -moz-hyphens: auto;
+	    -ms-hyphens: auto;
+	     -o-hyphens: auto;
+	        hyphens: auto;
+}
+
+@mixin inline-block()
+{
+    display:inline-block;
+    *display:inline;
+    *zoom:1;
+}
+
+@mixin opacity($opacity)
+{
+	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=#{$opacity * 100});
+	opacity: $opacity ;
+	
+}
+
+
+// Mixin des thumbnails de l'application
+// @param string typeThumb ($thumbTiny - $thumbMini - $thumbSmall - $thumbMedium)
+
+@mixin thumb($typeThumb)
+{
+	display: block;
+	text-align:center;
+	
+	@if $typeThumb == mini
+	{
+		width 		: $widthThumbMiniPhoto;
+		height 		: $heightThumbMiniPhoto;
+		line-height : $heightThumbMiniPhoto;
+		& .img-error, &.img-error
+		{
+			display: block;
+			width 		: $widthThumbMiniPhoto;
+			height 		: $heightThumbMiniPhoto;
+			background-image:image-url('default/error_mini.png');
+		}
+		& .img-empty, &.img-empty
+		{	
+			display: block;
+			width 		: $widthThumbMiniPhoto;
+			height 		: $heightThumbMiniPhoto;		
+			background-image:image-url('default/empty_mini.png');	
+		}
+		
+	}
+	@else if $typeThumb == small
+	{
+		width 		: $widthThumbSmallPhoto;
+		height 		: $heightThumbSmallPhoto;
+		line-height	: $heightThumbSmallPhoto;
+		& .img-error, &.img-error
+		{
+			display: block;
+			width 		: $widthThumbSmallPhoto;
+			height 		: $heightThumbSmallPhoto;
+			background-image:image-url('default/error_small.png');
+		}	
+		& .img-empty, &.img-empty
+		{
+			display: block;
+			width 		: $widthThumbSmallPhoto;
+			height 		: $heightThumbSmallPhoto;
+			background-image:image-url('default/empty_small.png');
+		}	
+	}
+	@else if $typeThumb == medium
+	{
+		width 		: $widthThumbMediumPhoto;
+		height 		: $heightThumbMediumPhoto;	
+		line-height	: $heightThumbMediumPhoto;
+		& .img-error, &.img-error
+		{	
+			display: block;		
+			width 		: $widthThumbMediumPhoto;
+			height 		: $heightThumbMediumPhoto;	
+			background-image:image-url('default/error_medium.png');	
+		}	
+		& .img-empty, &.img-empty
+		{
+			display: block;
+			width 		: $widthThumbMediumPhoto;
+			height 		: $heightThumbMediumPhoto;	
+			background-image:image-url('default/empty_medium.png');
+		}
+	}
+	@else if $typeThumb == tiny
+	{
+		width 		: $widthThumbTinyPhoto;
+		height 		: $heightThumbTinyPhoto;
+		line-height	: $heightThumbTinyPhoto;
+		& .img-error, &.img-error
+		{
+			display: block;		
+			width 		: $widthThumbTinyPhoto;
+			height 		: $heightThumbTinyPhoto;	
+			background-image:image-url('default/error_tiny.png');				
+		}
+		& .img-empty, &.img-empty
+		{
+			display: block;		
+			width 		: $widthThumbTinyPhoto;
+			height 		: $heightThumbTinyPhoto;	
+			background-image:image-url('default/empty_tiny.png');				
+		}		
+	}		
+	& img
+	{
+		vertical-align: middle;
+		max-width: 100%;
+		max-height: 100%;
+	}
+	& .middle
+	{
+		text-align: center;
+	}
+} 
+

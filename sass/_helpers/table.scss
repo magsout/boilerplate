@@ -1,0 +1,121 @@
+/**
+* Table classes
+*
+* @author splitfire - http://splitfire.fr
+* @version 1.0
+*
+*/ 
+
+.table 
+{
+    display: table;
+    width: 100%; 
+    margin:20px 0 20px 0; 
+}      
+.th
+{
+	font-weight: bold;
+	padding: 10px;
+	text-align: left;
+	vertical-align: middle;
+	@include text();
+}
+.tr 
+{
+	display: table-row;
+	width: 100%;
+}
+.tr:nth-child(2n+1) .td
+{
+	background-color: #F2F2F2; 
+}
+.td, 
+.th 
+{
+	display: table-cell;
+}
+.td
+{
+	border-top: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+    vertical-align: middle;
+    @include text();
+}
+.tr:last-child .td
+{
+	border-bottom: 1px solid #ccc;
+}
+.thead 
+{
+    display: table-header-group;
+     border-top: 1px solid #ccc;
+}
+.tbody 
+{
+    display: table-row-group;	    
+}
+.tfoot 
+{
+    display: table-footer-group;
+}
+.table-fixed
+{
+	table-layout:fixed;
+}
+
+/* table quadrillé
+__________________________*/
+.table-squared
+{
+	& .td,
+	{
+		border-right: 1px solid #ccc;;
+		&.td:first-child
+		{
+			border-left: 1px solid #ccc;;
+		}
+
+	}
+	& .th
+	{
+		border-right: 1px solid #ccc;;
+		border-top:1px solid #ccc;
+		&.th:first-child
+		{
+			border-left: 1px solid #ccc;
+		}		
+	}
+}
+/* table datatable
+__________________________*/
+.table-datatable
+{
+	& .th_relative
+	{
+		position: relative;
+		& a
+		{
+			display: block;
+		}
+	}	
+	
+	& .caret_top,
+	& .caret_bottom
+	{
+		position: absolute;
+		right: 0;
+		cursor: pointer;
+	}
+	& .sf_caret_double
+	{
+		& .caret_top
+		{
+			bottom:50%;
+		}
+		& .caret_bottom
+		{
+			top: 50%;
+		}		
+	}
+}

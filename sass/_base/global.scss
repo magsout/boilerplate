@@ -1,0 +1,118 @@
+/**
+* Tools classes
+*
+* @author splitfire - http://splitfire.fr
+* @version 1.0
+*
+*/
+
+.link
+{
+	color: $textColor;
+	&:hover
+	{
+		text-decoration: underline;		
+	}
+}
+/* Couleur de text global à l'application
+--------------------------------------------*/
+.globalTextColor
+{
+	color: $textColor;
+
+}
+/* Couleur de titre global à l'application
+--------------------------------------------*/
+.globalTitleColor
+{
+	color: $titleColor;	
+}
+.information, 
+p.information
+{
+	color: $textColor;
+	font-size: 13px;
+    @include text();
+}
+
+
+
+/* alignments 
+---------------*/
+.left { float: left; }
+.right { float: right; }
+.center    { margin-left: auto; margin-right: auto; }
+.txtLeft   { text-align: left; }
+.txtRight  { text-align: right; }
+.txtCenter { text-align: center; }
+
+/* Positionnement
+--------------*/
+$class-padding: padding !default;
+@for $i from 1 through 10
+{
+	.#{$class-padding}_#{$i}
+	{
+		padding: 10px * $i;
+	}
+}
+//Padding top
+$class-paddingTop: padding_top !default;
+@for $i from 1 through 10
+{
+	.#{$class-paddingTop}_#{$i}
+	{
+		padding-top: 10px * $i;
+	}
+}
+//Padding bottom
+$class-paddingBottom: padding_bottom !default;
+@for $i from 1 through 10
+{
+	.#{$class-paddingBottom}_#{$i}
+	{
+		padding-bottom: 10px * $i;
+	}
+}
+//Padding left
+$class-paddingLeft: padding_left !default;
+@for $i from 1 through 10
+{
+	.#{$class-paddingLeft}_#{$i}
+	{
+		padding-left: 10px * $i;
+	}
+}
+//Padding right
+$class-paddingRight: padding_right !default;
+@for $i from 1 through 10
+{
+	.#{$class-paddingRight}_#{$i}
+	{
+		padding-right: 10px * $i;
+	}
+}
+
+/* Supprimer la selection d'un élément
+---------------------------------------*/
+/* @add + */
+.unselectable
+{
+	-webkit-user-select: none;
+   	   -moz-user-select: none;
+   	    -ms-user-select: none;
+   	    	user-select:none;
+}
+/* Hidde an element
+---------------------*/
+.hidden { display: none; }
+
+/* ul, ol no style
+--------------------*/
+.ul-no-style
+{
+	list-style:none;
+	margin:0;
+	padding: 0;
+
+}

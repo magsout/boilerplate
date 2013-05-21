@@ -1,0 +1,79 @@
+$widthScrollBarContainer : 10px;
+$widthScrollBar : 4px;
+
+.tinyscroll { 
+
+	width: 520px; 
+	clear: both; 
+	/*margin: 20px 0 10px;*/ 
+	margin:0; 
+	
+	& .tinyscroll_viewport 
+	{ 
+		width: 508px; 
+		//height: 300px;
+		min-height: 100px;
+		max-height: 400px; 
+		overflow: hidden; 
+		position: relative;
+		//background-color: #F0F0F0;
+		border: 1px solid #c3c3c3;
+	}
+	& .tinyscroll_overview 
+	{ 
+		list-style: none; 
+		position: absolute; 
+		left: 0; 
+		top: 0; 
+	}
+	& .tinyscroll_thumb .tinyscroll_end,
+	& .tinyscroll_thumb 
+	{ 
+		background-color: #DCDCDC; 
+	}
+	& .tinyscroll_scrollbar 
+	{ 
+		position: relative; 
+		float: right; 
+		width: $widthScrollBarContainer; 
+	}
+	& .tinyscroll_track 
+	{ 
+		background-color: transparent; 
+		height: 100%; 
+		width: $widthScrollBarContainer; 
+		position: relative;
+		padding: 0; 
+	}
+	& .tinyscroll_thumb 
+	{ 
+		height: 20px; 
+		width: $widthScrollBar;
+		margin-left: ($widthScrollBarContainer - $widthScrollBar) / 2;
+		cursor: pointer; 
+		overflow: hidden; 
+		position: absolute; 
+		top: 0;
+		@include border-radius(2px);
+		
+		& .tinyscroll_end 
+		{ 
+			overflow: hidden; 
+			height: 5px; 
+			width: $widthScrollBar; 
+		}
+	}
+	& .tinyscroll_disable
+	{ 
+		display: none; 
+	}
+	& .tinyscroll_noSelect 
+	{ 
+		user-select: none; 
+		-o-user-select: none; 
+		-moz-user-select: none; 
+		-khtml-user-select: none; 
+		-webkit-user-select: none; 
+	}
+
+}
