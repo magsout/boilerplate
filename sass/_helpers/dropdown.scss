@@ -5,77 +5,22 @@
 * @version 1.0
 *
 */
- 
- 
-/*variable*/
-$positionRight:-1px;
-$positionTop:45px;
-$padding:0;
-$backgroundColor:$colorMain;
-$color:#666666; 
 
-// Widget de notification
-.box_dropdown
+.dropdown
 {
-    position: relative;  
-      	
-	& .dropdown_wrapper
-	{
+    position: relative;
+    & .dropdown-item
+    {
+    	cursor: pointer;
+    }      	
+	/* list
+	-------------------*/
+	& .dropdown--target
+	{	
 		display: none;
 		position: absolute;
-		padding: $padding;
-	    font-size: .8em;
-	    /* @diff + */
-	    z-index:1;
-	    @include box-shadow(0px 1px 2px rgba(0, 0, 0, 0.75));
-	}
-	&.dropdown_inline
-	{
-		display: inline-block;	
-	}
-	& .dropdown_position_left
-	{
-		left: 0;
-	}
-	& .dropdown_position_right
-	{
-		right: 0;
-	}
-	& .dropdown_position_bottom
-	{
-		bottom: 100%;
-	}
-	& .dropdown_position_top
-	{
-		top:100%;
-	}
-	/*valeur définié par l'utilisateur*/
-	& .dropdown_position_var
-	{
-		right: $positionRight;
-		top:$positionTop;
-	}
-	.dropdown_list
-	{		
+		list-style: none;	
 		margin:0;
-		
-		& > li
-		{
-			background-color: #fff;
-	    	border-top:1px solid #B9B9B9;
-		    list-style: none;
-		    white-space: nowrap;
-		    padding:15px;
-		}	  
-		& > li:hover
-		{
-	    	background-color: $backgroundColor;
-		}
-		& a
-		{
-			display: block;
-		    padding: 15px 12px;
-			color:$color
-		}
+		padding:0;
 	}
 }

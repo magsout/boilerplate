@@ -1,8 +1,10 @@
 /**
 * Table classes
 *
+* @date 	26/04/2013
 * @author splitfire - http://splitfire.fr
 * @version 1.0
+*
 *
 */ 
 
@@ -10,7 +12,6 @@
 {
     display: table;
     width: 100%; 
-    margin:20px 0 20px 0; 
 }      
 .th
 {
@@ -19,37 +20,70 @@
 	text-align: left;
 	vertical-align: middle;
 	@include text();
+	background-color: $tableColor;
+	color:white;
+	line-height: 2.5em;
+	
+	& a 
+	{
+		color: white;
+	}
 }
 .tr 
 {
 	display: table-row;
 	width: 100%;
 }
-.tr:nth-child(2n+1) .td
+.td
 {
-	background-color: #F2F2F2; 
+	border-top: 1px solid #e1e1e1;
+    padding: 10px;
+    text-align: left;
+    vertical-align: middle;
+    @include text();
+	background-color:#fff ;
+	& img
+	{
+		vertical-align:middle;
+	}
+}
+.tr:nth-child(4n+2) .td
+{
+	background-color:#F9F9F9; 
+}
+//On cache par defaut les ligne tr_item qui servent pour le responsive
+.tr_item,
+.no-mq .tr_item
+{
+	display: none;
+}
+.tr.success .td
+{
+	background-color: ligthen($successColor,9); 
+	color: white;
+	& .btn.disabled
+	{
+		display: none;
+	}
+	& .link
+	{
+		color: #37D0FF;
+	}
 }
 .td, 
 .th 
 {
 	display: table-cell;
 }
-.td
-{
-	border-top: 1px solid #ccc;
-    padding: 10px;
-    text-align: left;
-    vertical-align: middle;
-    @include text();
-}
+
 .tr:last-child .td
 {
-	border-bottom: 1px solid #ccc;
+	border-bottom: 1px solid #e1e1e1;
 }
 .thead 
 {
     display: table-header-group;
-     border-top: 1px solid #ccc;
+    border-top: 1px solid #e1e1e1;
 }
 .tbody 
 {
@@ -87,35 +121,134 @@ __________________________*/
 		}		
 	}
 }
-/* table datatable
+
+/* support des tri par colonne (datatable)
 __________________________*/
-.table-datatable
+.th .th--order
 {
-	& .th_relative
+	display: inline-block;
+	line-height: 2.5em;
+	position: relative;
+	text-decoration: none;
+	white-space: nowrap;
+
+	&.order-active
 	{
-		position: relative;
-		& a
-		{
-			display: block;
-		}
-	}	
-	
-	& .caret_top,
-	& .caret_bottom
+	}
+	& .order-icon
+	{
+		display: inline-block;
+		@include icon-table-sprite(caret-normal);
+		width: icon-table-sprite-width(caret-normal);
+		height: icon-table-sprite-height(caret-normal);
+		@include opacity(0.5);
+		vertical-align: middle;
+	}
+	&.order-asc .order-icon
+	{	
+		@include icon-table-sprite(caret-down);
+		width: icon-table-sprite-width(caret-down);
+		height: icon-table-sprite-height(caret-down);
+		@include opacity(1);
+		margin-left: 2px;
+		vertical-align: middle;
+	}
+	&.order-desc .order-icon
+	{
+		@include icon-table-sprite(caret-up);
+		width: icon-table-sprite-width(caret-up);
+		height: icon-table-sprite-height(caret-up);
+		@include opacity(1);
+		margin-left: 2px;
+		vertical-align: middle;
+	}
+}
+
+/* Partie responsive
+---------------------*/
+@include mq($toDevice: 900px)
+{
+	.table
+	{
+		display: block;
+		margin: 0;
+	}
+	.thead 
 	{
 		position: absolute;
-		right: 0;
-		cursor: pointer;
+		display: block;
+		top: -9999px;
+		left: -9999px;	
 	}
-	& .sf_caret_double
+	.tbody
 	{
-		& .caret_top
+		display: block;
+	}
+	//
+	.tr_item
+	{
+		display: block;
+		@include box-sizing(border-box);
+		margin-bottom:10px;
+		& .td
 		{
-			bottom:50%;
+			display:block;
+			@include box-sizing(border-box);
+			& a
+			{
+				text-decoration: none;
+				outline: none;					
+			}
+			
 		}
-		& .caret_bottom
+		& .td
 		{
-			top: 50%;
-		}		
+			border:none;
+			padding:0;
+			background-color:#F9F9F9;
+		}
+		//Container de la fiche
+		& .td_container
+		{
+			display: block;
+			padding:10px;
+			position: relative;
+		}
+		//Partie importante
+		& .td_info
+		{
+			color: #000;
+			margin:0 0 10px 0;
+			padding-right: 15px;
+		}
+		//Sous titres
+		& .td_subtitle
+		{
+			color: #B0B0B1;
+			padding-right: 15px;
+		}
+		//Footer composé de lien
+		& .td_footer
+		{
+			margin:5px 0 0 0;
+			border-top:solid 1px #F4F4F5;
+			background-color: lighten(#e1e1e1, 3);	
+			& .td_footer--item
+			{
+				display: inline-block;
+				color: #4d4d4d;
+				border-left:solid 1px #F4F4F5;
+				padding:8px;
+			}
+			& span:hover
+			{
+				opacity: .5;
+			}
+		}
+	}
+	//On cache les autres tr non rwd
+	.tr:not(.tr_item)
+	{
+		display: none;
 	}
 }

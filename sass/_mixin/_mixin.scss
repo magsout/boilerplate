@@ -18,10 +18,14 @@
 @import "compass/typography/text/replacement";
 @import "compass/css3/opacity";
 @import "compass/css3/box-sizing";
+@import "compass/utilities/sprites/sprite-img";
+@import "compass/utilities/sprites/base";
+@import "compass/css3/box";
+@import "compass/support";
 
 
 /* Mixin by Splitfire
--------------------- */
+----------------------- */
  
 @mixin backface($state)
 {
@@ -38,14 +42,23 @@
 	    -ms-transform-style: $value;
 		    transform-style: $value;
 }
+
+/**
+ * Gestion des background-color en rgba
+ */
 @mixin background-color-rgba($color, $opacity)
 {
 
 	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=#{$opacity * 100});
+	filter:alpha(opacity=#{$opacity * 100});
+	zoom:1;
 	background-color: $color;	
 	background-color: rgba($color, $opacity);
 }
 
+/**
+ * Gestion des césures sur des parapgraphes
+ */
 @mixin text()
 {
 		word-wrap: break-word;
@@ -56,6 +69,9 @@
 	        hyphens: auto;
 }
 
+/**
+ * hack pour le inline-block
+ */
 @mixin inline-block()
 {
     display:inline-block;
@@ -63,112 +79,229 @@
     *zoom:1;
 }
 
+
+/**
+ * Compatilité d'ie8 avec l'opacity
+ */
 @mixin opacity($opacity)
 {
 	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=#{$opacity * 100});
 	opacity: $opacity ;
-	
+	zoom: 1;
+}
+
+/**
+ * Empeche la selection 
+ */
+@mixin unselectable()
+{
+	-webkit-user-select: none;
+   	   -moz-user-select: none;
+   	    -ms-user-select: none;
+   	    	user-select: none;
+}
+ 
+/**
+ * Alias vers le mixin after-before()
+ */
+@mixin after()
+{
+	@include after-before($pseudo-element : 'after', $type: 'table');
+}
+/**
+ * Alias vers le mixin after-before()
+ */
+@mixin before()
+{
+	@include after-before($pseudo-element : 'before', $type: 'table');
 }
 
 
-// Mixin des thumbnails de l'application
-// @param string typeThumb ($thumbTiny - $thumbMini - $thumbSmall - $thumbMedium)
-
-@mixin thumb($typeThumb)
+/**
+ * Mixin pour gérer la pseudo classe :after et :before
+ * @param string type du pseudo éléments
+ * @param string type du display
+ * @return html
+ */
+@mixin after-before($pseudo-element : 'after', $type: 'block')
 {
-	display: block;
-	text-align:center;
-	
-	@if $typeThumb == mini
+	@if ($pseudo-element == 'after')
 	{
-		width 		: $widthThumbMiniPhoto;
-		height 		: $heightThumbMiniPhoto;
-		line-height : $heightThumbMiniPhoto;
-		& .img-error, &.img-error
+		&:after
 		{
-			display: block;
-			width 		: $widthThumbMiniPhoto;
-			height 		: $heightThumbMiniPhoto;
-			background-image:image-url('default/error_mini.png');
-		}
-		& .img-empty, &.img-empty
-		{	
-			display: block;
-			width 		: $widthThumbMiniPhoto;
-			height 		: $heightThumbMiniPhoto;		
-			background-image:image-url('default/empty_mini.png');	
-		}
-		
-	}
-	@else if $typeThumb == small
-	{
-		width 		: $widthThumbSmallPhoto;
-		height 		: $heightThumbSmallPhoto;
-		line-height	: $heightThumbSmallPhoto;
-		& .img-error, &.img-error
-		{
-			display: block;
-			width 		: $widthThumbSmallPhoto;
-			height 		: $heightThumbSmallPhoto;
-			background-image:image-url('default/error_small.png');
-		}	
-		& .img-empty, &.img-empty
-		{
-			display: block;
-			width 		: $widthThumbSmallPhoto;
-			height 		: $heightThumbSmallPhoto;
-			background-image:image-url('default/empty_small.png');
-		}	
-	}
-	@else if $typeThumb == medium
-	{
-		width 		: $widthThumbMediumPhoto;
-		height 		: $heightThumbMediumPhoto;	
-		line-height	: $heightThumbMediumPhoto;
-		& .img-error, &.img-error
-		{	
-			display: block;		
-			width 		: $widthThumbMediumPhoto;
-			height 		: $heightThumbMediumPhoto;	
-			background-image:image-url('default/error_medium.png');	
-		}	
-		& .img-empty, &.img-empty
-		{
-			display: block;
-			width 		: $widthThumbMediumPhoto;
-			height 		: $heightThumbMediumPhoto;	
-			background-image:image-url('default/empty_medium.png');
+			display: unquote($type);
+			content: "";
+			clear: both;
+			@content;
 		}
 	}
-	@else if $typeThumb == tiny
+	@else if ($pseudo-element == 'before')
 	{
-		width 		: $widthThumbTinyPhoto;
-		height 		: $heightThumbTinyPhoto;
-		line-height	: $heightThumbTinyPhoto;
-		& .img-error, &.img-error
+		&:before
 		{
-			display: block;		
-			width 		: $widthThumbTinyPhoto;
-			height 		: $heightThumbTinyPhoto;	
-			background-image:image-url('default/error_tiny.png');				
+			display: unquote($type);
+			content: "";
+			clear: both;
+			@content;
 		}
-		& .img-empty, &.img-empty
-		{
-			display: block;		
-			width 		: $widthThumbTinyPhoto;
-			height 		: $heightThumbTinyPhoto;	
-			background-image:image-url('default/empty_tiny.png');				
-		}		
-	}		
-	& img
-	{
-		vertical-align: middle;
-		max-width: 100%;
-		max-height: 100%;
 	}
-	& .middle
-	{
-		text-align: center;
-	}
-} 
+}
 
+/**
+ * Apply media query
+ * @param string|number|false device or value in pixel or false if empty
+ * @param string|number|false device or value in pixel or false if empty
+ * @param string|false options add at end for mq
+ */
+@mixin mq($fromDevice:false, $toDevice:false, $options:false) 
+{
+	$minWidth : false;
+	$maxWidth : false;
+	
+	@if((false != $fromDevice) and (false == $toDevice) and (false == $options))
+	{
+		@include mq-device($fromDevice, $options){ @content; }
+	}
+	@else 
+	{
+		@if(isNotEmpty($fromDevice)) 
+		{
+			@if(string == type-of($fromDevice))
+			{			
+				$minWidth : mq-minWidth($fromDevice);	
+			}
+			@else if(number == type-of($fromDevice))
+			{
+				@if(unitless($fromDevice))
+				{
+					@warn "No unit #{$fromDevice}"; 
+				}
+				@else
+				{
+					$minWidth : $fromDevice + 1;
+				}				
+			}		
+			@if(false == $minWidth) 
+			{
+				@warn "invalid min-width value : #{$fromDevice}";
+			}
+		}		
+		
+		@if(isNotEmpty($toDevice)) 
+		{
+			@if(string == type-of($toDevice))
+			{
+				$maxWidth : mq-maxWidth($toDevice);	
+			}
+			@else if(number == type-of($toDevice))
+			{
+				@if(unitless($toDevice))
+				{
+					@warn "No unit #{$toDevice}"; 
+				}
+				@else
+				{
+					$maxWidth : $toDevice;
+				}				
+			}
+			@if(false == $maxWidth) 
+			{
+				@warn "Invalid max-width value : #{$toDevice}";
+			}	
+		}		
+	
+		@include mq-pixel($minWidth, $maxWidth, $options){ @content; };
+	}
+}
+
+/**
+ * Apply media query
+ * @param string|number|false device or value in pixel
+ * @param string|false options add to media query
+ */
+@mixin mq-device($device, $options:false)
+{
+	@include mq-pixel(mq-minWidth($device),mq-maxWidth($device), $options){ @content; };
+}
+
+/**
+ * Apply media query for device
+ * @param string device
+ */
+@mixin mq-pixel($minWidth:false, $maxWidth:false, $options:false) 
+{	
+	$mediaQuery	: "";
+	// Forge min-width
+	@if(isNotEmpty($minWidth))	
+	{
+		$mediaQuery	: '#{$mediaQuery} and (min-width : #{$minWidth})';
+	}
+	// Forge max-width
+	@if(isNotEmpty($maxWidth)) 
+	{
+		$mediaQuery	: '#{$mediaQuery} and (max-width : #{$maxWidth})';
+	}
+	// Forge options
+	@if(isNotEmpty($options) and string == type-of($options))
+	{
+		$mediaQuery	: '#{$mediaQuery} #{$options}';
+	}
+	// Warning if media query is empty
+	@if($mediaQuery == "") 
+	{
+		@warn "Media query is empty : @media all {}";
+	}
+	// Forge final media query	
+	$mediaQuery : unquote(#{$mediaQuery});
+	@media all #{$mediaQuery}
+	{
+		@content;
+	}
+}
+								
+/**
+ * Create css class for timeline icon
+ * @param string class
+ * @param string icon
+ */								
+@mixin add-icon($class, $icon)
+{
+	$icon : unquote(#{$icon});
+									
+	&.#{$class}:before
+	{
+		content: "#{$icon}";
+	}
+}	
+								
+
+/**
+ * Convert px to em, rem
+ * @param int to convert
+ * @param int base in px
+ */	
+@mixin px2em($px, $base-font-size:$base-font-size, $em : false, $rem: false, $percent: false, $property : font-size) 
+{
+    @if (unitless($px)) 
+	{
+        @warn "Assuming #{$px} to be in pixels, attempting to convert it into pixels for you";
+    } 
+	@if (unit($px) == em) 
+	{
+		#{$property}:$px;
+    }
+    $value : ($px / $base-font-size);
+	@if $percent
+	{
+		#{$property}: $value * 100%;
+	}
+	@if $em
+	{
+		#{$property}:$value * 1em;
+	}
+	@if $rem
+	{
+		#{$property}:$value * 1rem;
+	}
+}
+								

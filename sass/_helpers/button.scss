@@ -1,6 +1,7 @@
 /**
 * Button classes
 *
+* @date 	26/04/2013
 * @author splitfire - http://splitfire.fr
 * @version 1.1
 *
@@ -12,19 +13,18 @@
     padding: 6px 12px;
     margin:0 5px 0 0;
     line-height: 19px; 
-    border: 1px solid #DCDCDC;  
-    vertical-align: middle;
+   	border: none;
     cursor: pointer;
     color: #666666;
     text-decoration: none;
-    font-size: 13px;
+    font-size: 1em;
     font-weight: normal;
-    font-family:Helvetica;
     text-align: center;   
     @include border-radius(2px);
-    @include box-sizing(border-box);	
-    @include box-shadow(none);
-	@include background(linear-gradient(center top,#F5F5F5, #F1F1F1));
+    @include box-sizing(border-box);
+	background-color: #F5F5F5;	
+ 	background: -ms-linear-gradient((top, #F5F5F5, darken(#F5F5F5, 10%)));
+	@include background(linear-gradient(top,#F5F5F5, darken(#F5F5F5, 10%)));
 	    
     &.disabled
     {
@@ -38,13 +38,12 @@
 }
 
 .btn:not(.disabled):hover,
-.btn:not(.disabled):focus
+.btn:not(.disabled):focus 
 {
 	text-decoration: none;
-	border: 1px solid #c6c6c6;
-	@include box-shadow(0 1px 1px rgba(0,0,0,0.1));
-	background-color: #f8f8f8;
-	@include background(linear-gradient(center top,#f8f8f8, #f1f1f1));
+	background-color: darken(#F5F5F5, 20%);
+ 	background: -ms-linear-gradient((top, #F5F5F5, darken(#F5F5F5, 20%)));
+	@include background(linear-gradient(top,#F5F5F5, darken(#F5F5F5, 20%)));
 }
 .btn-full
 {
@@ -66,70 +65,82 @@
 {
 	width: 300px;
 }
+.btn-wd-50
+{
+	width: 50%;
+}
+.btn-auto
+{
+	width: 100%;
+}
+.btn-auto + .btn-auto
+{
+	width: 50%;
+}
+
+.btn-big
+{
+	font-size:28px; 
+	line-height:28px;
+	font-weight: lighter;
+}
 
 .btn-info
 {
-  	border:1px solid transparent;
-	color:#fff;
-	background-color: #4D90FE;
-	@include background(linear-gradient(center top,#4D90FE,#4787ED));
+	color:#fff ;
+	background-color: $infoColor;
+ 	background: -ms-linear-gradient((top, $infoColor, darken($infoColor, 10%)));
+	@include background(linear-gradient(top, $infoColor, darken($infoColor, 10%)));
 	
 	&:not(.disabled):hover,
-	&:not(.disabled):focus /*@add + */
+	&:not(.disabled):focus
 	{
-		border: 1px solid #4D90FE;
-		@include box-shadow(0 1px 1px rgba(0,0,0,0.2));
-		background-color: #357AE8;
-		@include background(linear-gradient(center top,#4D90FE,#357AE8));
-	}
+		background-color: darken($infoColor, 20%);
+		background: -ms-linear-gradient((top, $infoColor, darken($infoColor, 20%)));
+		@include background(linear-gradient(top, $infoColor, darken($infoColor, 20%)))
+	} 
 }
 .btn-danger
 {
-  	border:1px solid transparent;
- 	color:#fff;	
-	background-color:#d14836;
-	@include background(linear-gradient(center top,#dd4b39,#d14836));
+ 	color:#fff ;	
+	background-color:$dangerColor;
+ 	background: -ms-linear-gradient((top,$dangerColor,darken($dangerColor, 10%)));
+	@include background(linear-gradient(top,$dangerColor,darken($dangerColor, 10%)));
 	&:not(.disabled):hover,
-	&:not(.disabled):focus /*@add + */
+	&:not(.disabled):focus 
 	{
-		border:1px solid #b0281a;
-		@include box-shadow(0 1px 1px rgba(0,0,0,0.2));
-		background-color:#c53727;
-		@include background(linear-gradient(center top,#dd4b39,#c53727));
+		background-color:darken($dangerColor,20%);
+		background: -ms-linear-gradient((top,$dangerColor,darken($dangerColor, 20%)));
+		@include background(linear-gradient(top,$dangerColor,darken($dangerColor,20%)));
 	}
 }
-.btn-succes
+.btn-success
 {
-  	border:1px solid transparent;
-	color: #FFFFFF;	
- 	background-color: #3D9400;
- 	@include background(linear-gradient(center top,#3D9400, #398A00));
- 	  
+	color: #FFFFFF ;	
+ 	background-color: $successColor;
+ 	background: -ms-linear-gradient((top,$successColor, darken($successColor, 10%)));
+ 	@include background(linear-gradient(top,$successColor, darken($successColor, 10%)));
 	&:not(.disabled):hover,
-	&:not(.disabled):focus /*@add + */
+	&:not(.disabled):focus 
 	{
-		border: 1px solid #29691D;
-		@include box-shadow(0 1px 1px rgba(0,0,0,0.2));
-		background-color:#368200;
-		@include background(linear-gradient(center top,#3D9400,#368200));	
+		background-color:darken($successColor, 20%);
+		background: -ms-linear-gradient((top,$successColor, darken($successColor, 20%)));
+		@include background(linear-gradient(top,$successColor,darken($successColor, 20%)));	
 	}
 }
 
 .btn-warning
 {
 	
-  	border:1px solid transparent;
-	color: #FFFFFF;	
- 	background-color: #FFBE44;
- 	@include background(linear-gradient(center top,#FFBE44, #FCCE54));
+ 	color:#fff ;	
+	background-color:$dangerColor;
+ 	background: -ms-linear-gradient((top,$warningColor,darken($warningColor, 10%)));
+	@include background(linear-gradient(top,$warningColor,darken($warningColor, 10%)));
 	&:not(.disabled):hover,
-	&:not(.disabled):focus /*@add + */
+	&:not(.disabled):focus 
 	{
-		border: 1px solid #FFBE44;
-		@include box-shadow(0 1px 1px rgba(0,0,0,0.2));
-		background-color:#FBE44;
-		@include background(linear-gradient(center top,#FFBE44,#FCCE54));	
+		background-color:darken($warningColor,20%);
+		background: -ms-linear-gradient((top,$warningColor,darken($warningColor, 20%)));
+		@include background(linear-gradient(top,$warningColor,darken($warningColor,20%)));
 	}
-
 }
-

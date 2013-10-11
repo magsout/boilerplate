@@ -8,57 +8,21 @@
 
 /* Main
 --------*/
-html 
-{
-	
-}
 body 
 {
 	margin: 0;
 	padding: 0;
-}
-/* Title
----------*/
-h1, h2, h3, h4, h5, h6 
-{
-	margin: 1em 0 .5em 0;
-	padding: 0;
-	font-weight:normal;
-}
-/* Link
---------*/
-a
-{
-	text-decoration: none;
-	color:#000;
-}
-a:hover, 
-a:active, 
-a.active, 
-a.selected
-{
-	text-decoration: none;
-	color: #000;
 }
 
 a img 
 {
 	border: none;
 }
-strong 
-{
-	font-weight: bold;
-}
 /* Paragraph
 -------------*/
 p 
 {
-	margin: .75em 0;
-}
-address 
-{
-	margin: .75em 0;
-	font-style: normal;
+	margin: .75em 0; /* Marges plus faibles que par défaut. (7) */
 }
 /* Form
 --------*/
@@ -67,32 +31,4 @@ form, fieldset
 	margin: 0;
 	padding: 0;
 	border: none;
-}
-input, button, select 
-{
-	vertical-align: middle;
-}
-select
-{
-	@include border-radius (4px);
-    color: #555555;
-    display: inline-block;
-    background-color: #FFFFFF;
-    border: 1px solid #CCCCCC;
-    padding: 4px 6px;
-    vertical-align: middle;
-    height: 30px;
-    line-height: 30px;
-    
-    & option
-    {
-	    padding: 4px;
-    }
-}
-
-/* Utils
----------*/
-.clearfloat
-{	
-	clear:both;
 }

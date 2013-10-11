@@ -6,39 +6,39 @@
 *
 */ 
 
-$widthApp : 100%;
 
 .grid_container
 {
 	position: relative;
-	width: $widthApp;
-	margin: 20px auto;
-	&:after
+	@include mq(phone){width: 100%; @include box-sizing(border-box)}
+	&.grid_container--auto
 	{
-		display: block;
-		content: "";
-		clear: both;
+		width: auto;
 	}	
+	@extend %clearfloat;	
 	
 	/* Grid de base */
-	&>  *:not(.grid_p) + *:not(.grid_p) { margin-left: 2%; }
+	&> *:not(.grid_p) + *:not(.grid_p) { margin-left: 2%; @include mq(phone){margin-left:0}}
 	&> *		{ float:left;}
 	/* Grid 2 elements per row */
-	&.grid2 > * { width: 49%; }
+	&.grid2 > * { width: 49%; @include mq(false,tablet){width: 100%;}}
 	&.grid2 > *:nth-child(2n + 3){margin-left:0;}
 	/* Grid 3 elements per row */
-	&.grid3 > * 	{ width: 32%; }
+	&.grid3 > * 	{ width: 32%;@include mq(phone){width: 100%;} }
 	&.grid3 > *:nth-child(3n + 4){margin-left:0;}
 	
 	/* Grid 4 elements per row */
-	&.grid4 > * 	{ width: 23.5%; }
+	&.grid4 > * 	{ width: 23.5%;@include mq(phone){width: 100%;} }
 	&.grid4 > *:nth-child(4n + 5){margin-left:0;}
 	/* Grid 5 elements per row */
-	&.grid5 > * 	{ width: 18.4%; }
+	&.grid5 > * 	{ width: 18.4%;@include mq(phone){width: 100%;} }
 	&.grid5 > *:nth-child(5n + 6){margin-left:0;}
 	/* Grid 6 elements per row */
-	&.grid6 > * 	{ width: 15%; }
-	&.grid6 > *:nth-child(6n + 7){margin-left:0;}	
+	&.grid6 > * 	{ width: 15%; @include mq(phone){width: 100%;}}
+	&.grid6 > *:nth-child(6n + 7){margin-left:0;}
+	/* Grid 7 elements per row */
+	&.grid7 > * 	{ width: 12%; @include mq(phone){width: 100%;}}
+	&.grid7 > *:nth-child(7n + 8){margin-left:0;}	
 	
 	/* Positionnement
 	-------------------*/
@@ -69,17 +69,27 @@ $widthApp : 100%;
 		& .#{$class-slug}_#{$i}
 		{
 			width: 10% * $i;
+			margin:0 /9 !important;
 		}	
 	}	
-	$class-slug: grid_p_mf;
+	$class-slug: grid_p_m;
 	@for $i from 1 through 10
 	{
 		& .#{$class-slug}_#{$i}
 		{
 			width: (10% * $i) - 2;
 		}	
-	}	
+	}
+	
+	/*Grid en pourcentage de 10% à 100%
+	-------------------------------------------*/
+
+		
 }
+
+
+
+
 
 
 
