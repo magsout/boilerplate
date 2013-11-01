@@ -16,6 +16,7 @@ npm install load-grunt-tasks --save-dev
 npm install grunt-contrib-handlebars --save-dev
 npm install grunt-contrib-compass --save-dev
 npm install grunt-bower-task --save-dev
+npm install grunt-photobox --save-dev
 ```
 
 ## Simple Dependency Install:
