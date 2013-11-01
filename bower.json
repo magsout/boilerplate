@@ -22,7 +22,7 @@
         },
         "backbone": {                  
 			"js/library": "**/*.js"
-        }
+        },
         "sass-mq": {                  
 			"sass/library": "**/*.scss"
         }
