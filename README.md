@@ -41,3 +41,8 @@ grunt dev
 
 ## Project distribution
 ```grunt dist```
+
+##  Inspired By
+
+- https://github.com/kud/marrow
+- https://github.com/Integralist/Grunt-Boilerplate
