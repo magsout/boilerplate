@@ -1,0 +1,99 @@
+/**
+* Global classes
+*
+* @author splitfire - http://splitfire.fr
+* @version 1.0
+*
+*/
+ 
+
+/* alignments 
+---------------*/
+.left 	   { float: left; }
+.right     { float: right; }
+.center    { margin-left: auto; margin-right: auto; }
+.txtLeft   { text-align: left; }
+.txtRight  { text-align: right; }
+.txtCenter { text-align: center; }
+.ma0  { margin: 0 0 0 0 !important}
+.mt0{margin-top:0 !important}
+.mb0 {margin-bottom:0 !important}
+.mb10 {margin-bottom:10px;}
+
+/* display
+-----------*/
+.inline 		{display:inline};
+.inlineBlock 	{display:inline-block};
+.block 			{display: block};
+
+/* taille de texte
+---------------*/
+.txtSmall { font-size: 0.8em; }
+
+/* auto-dimensionnement des images
+---------------*/
+.auto_img { max-width: 100%; }
+
+/* Supprimer la selection d'un élément
+---------------------------------------*/
+.unselectable{ @include unselectable()};
+
+/* Hidde an element
+---------------------*/
+.hidden { display: none; }
+
+/* ul, ol no style
+--------------------*/
+.ul-no-style { list-style:none; margin:0; padding: 0;}
+
+/* opacity
+------------*/
+.opacity { @include opacity(.5); }
+
+/*error form
+---------------*/
+.error-form { color:red; }
+
+/* Utils
+---------*/
+.clearfloat { @include after() }
+
+/* Delete background:black fullscreen
+---------------------------------------*/
+
+:-moz-full-screen:not(:root)
+{
+	background-color: transparent !important;
+}
+
+/* Noscript, IE warning
+-----------------------*/
+.noscript, 
+.iewarn
+{
+	display: block;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	text-align: center;
+	z-index: 99;
+	font-size: 0.85em;
+	box-shadow: 0 0 2px rgba(0,0,0,0.7);
+	@include background-color-rgba(#D32D2D, 0.95);
+	color: #fff;
+	border-top: 1px solid #D32D2D;
+	
+	& span
+	{
+		display: block;
+		padding: 8px 10px; 
+	}
+	& .close
+	{
+		float: right;
+		text-decoration: none;
+		color: #fff;
+		padding: 8px 10px;
+	}
+}

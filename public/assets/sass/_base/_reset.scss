@@ -1,0 +1,34 @@
+/**
+* Reset classes
+*
+* @author splitfire - http://splitfire.fr
+* @version 1.0
+*
+*/
+
+/* Main
+--------*/
+body 
+{
+	margin: 0;
+	padding: 0;
+}
+
+a img 
+{
+	border: none;
+}
+/* Paragraph
+-------------*/
+p 
+{
+	margin: .75em 0; /* Marges plus faibles que par défaut. (7) */
+}
+/* Form
+--------*/
+form, fieldset 
+{
+	margin: 0;
+	padding: 0;
+	border: none;
+}

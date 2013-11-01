@@ -1,0 +1,169 @@
+/**
+* Responsive classes
+*
+* @author splitfire - http://splitfire.fr
+* @version 1.0
+*
+*/ 
+
+
+/** 
+ *	Configuration module JS via media-queries
+ *	idea: http://css-tricks.com/making-sass-talk-to-javascript-with-json/
+ */
+
+body:before
+{
+	display: none;
+}
+@each $breakpoints in $breakpoints-config
+{
+	$config : mq-config($breakpoints);
+	@if(false != $config  ) 
+	{
+		@include mq(nth($breakpoints,1)) 
+		{
+			body:before
+			{
+				content: $config;
+			}
+		}
+	}
+}
+
+
+/**
+ *
+ * Viewport
+ *
+ **/
+ 
+@-webkit-viewport 
+{
+  width: device-width;
+  zoom: 1.0;
+}
+@-moz-viewport 
+{
+  width: device-width;
+  zoom: 1.0;
+}
+@-ms-viewport 
+{
+  width: device-width;
+  zoom: 1.0;
+}
+@-o-viewport 
+{
+  width: device-width;
+  zoom: 1.0;
+}
+@viewport 
+{
+  width: device-width;
+  zoom: 1.0;
+}
+
+
+/**
+ *
+ * Classe générique RWD
+ *
+ **/
+
+
+/* old browser, class add by modernizr
+----------------*/
+.no-mq
+{
+
+	.hidden-on-full,
+	.visible-only-tablet,
+	.visible-only-phone
+	{
+		display: none;
+	}
+}
+
+/* mq destkop
+--------------*/
+@include mq($fromDevice:desktop, $toDevice: wide)
+{
+
+	.hidden-on-full,
+    .visible-only-tablet,
+    .visible-only-phone 
+    {
+        display: none;
+    }	
+}
+
+
+/* mq tablette
+----------------*/
+@include mq(tablet)
+{
+
+	.hidden-on-tablet,
+    .visible-only-full,
+    .visible-only-phone 
+    {
+        display: none;
+	}
+	.tablet-no-float
+	{
+		float:none;
+	}
+	.tablet-wd-100
+	{
+		width: 100%;
+		display: block;
+		float: none;
+		margin-left:0;
+		margin-right:0;
+	}	
+}
+
+/* mq phone
+------------------*/
+@include mq($toDevice: phone) 
+{
+
+    .hidden-on-phone,
+    .visible-only-full,
+    .visible-only-tablet 
+    {
+        display: none;
+    }
+	.phone-no-float
+	{
+		float:none;
+	}
+	.phone-wd-100
+	{
+		width: 100%;
+		display: block;
+		float: none;
+		margin-left:0;
+		margin-right:0;
+	}
+	.phone-wd-auto
+	{
+		width: auto;
+		margin-left:0;
+		margin-right:0;
+	}
+	.phone-100
+	{
+		width: 100%;
+	}
+	
+}
+
+ 
+
+
+
+
+
+

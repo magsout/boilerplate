@@ -1,0 +1,40 @@
+/*----------------------------*\
+ * Flexbox layout             *
+\*----------------------------*/
+
+@mixin flex 
+{
+	@include display-box();
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+}
+
+@mixin flex-h 
+{
+	@include box-orient(horizontal);
+    -moz-box-orient: horizontal;
+  -webkit-box-orient: horizontal;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+@mixin flex-v 
+{
+	@include box-orient(column);
+    -moz-box-orient: vertical;
+  -webkit-box-orient: vertical;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+} 
+
+@mixin align-item($align)
+{
+	-webkit-box-align: $align; 
+	-moz-box-align: $align; /* OLD… */
+   -ms-flex-align: $align; /* You know the drill now… */
+   -webkit-align-items: $align;
+   align-items: $align;
+}
