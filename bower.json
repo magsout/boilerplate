@@ -1,0 +1,38 @@
+{
+  "name": "boilerplate",
+  "version": "0.1",
+  "dependencies": {
+    "jquery"			: "~1.*",
+    "bootstrap-sass"	: "*",
+    "handlebars.js"		: "*" ,
+	"backbone"			: "~1.0.*",
+	"sass-mq"			: "*"
+  },
+  "exportsOverride": {
+        "jquery": {                  
+			"js/library": "**/*.js",
+			"sass/library": "**/*.css"
+        },
+        "bootstrap-sass": {                  
+			"js/library": "**/*.js",
+			"sass/library": "**/*.scss"
+        },
+        "handlebars.js": {                  
+			"js/plugin": "**/*.js"
+        },
+        "backbone": {                  
+			"js/library": "**/*.js"
+        }
+        "sass-mq": {                  
+			"sass/library": "**/*.scss"
+        }
+    }    
+}
+
+
+
+
+
+
+
+
