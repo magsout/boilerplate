@@ -17,6 +17,7 @@ module.exports = function(grunt) {
 		npm install grunt-contrib-handlebars --save-dev
 		npm install grunt-contrib-compass --save-dev
 		npm install grunt-bower-task --save-dev
+		npm install grunt-photobox --save-dev
 		
 		Simple Dependency Install:
 		--------------------------
@@ -152,6 +153,18 @@ module.exports = function(grunt) {
 				"public/assets/js/templates/build/front.js": "public/assets/js/templates/front/*.handlebars"
 		    }
 		  }
+		},
+		
+		//Confiuration de photobox
+		//https://github.com/stefanjudis/grunt-photobox
+		photobox: {
+			task: {
+				options: 
+				{
+		        	screenSizes : [ '320x480', '480x600', '600x900', '900x1240' ],
+					urls        : [ 'http://yoursite.com', 'http://yoursite.com/blog', 'http://yoursite.com/catalog' ]
+				}
+			}
 		}
 	});	
 	
