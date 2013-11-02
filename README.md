@@ -6,6 +6,11 @@ Boilerplate
 npm install -g grunt-cli
 ```
 
+## Boilerplate
+```
+git clone https://github.com/magsout/boilerplate.git
+```
+
 ## Project Dependencies:
 ```
 npm install grunt --save-dev
