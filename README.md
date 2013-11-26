@@ -22,6 +22,7 @@ npm install grunt-contrib-handlebars --save-dev
 npm install grunt-contrib-compass --save-dev
 npm install grunt-bower-task --save-dev
 npm install grunt-photobox --save-dev
+npm install grunt-autoprefixer --save-dev
 ```
 
 ## Simple Dependency Install:

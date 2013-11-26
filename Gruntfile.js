@@ -18,6 +18,7 @@ module.exports = function(grunt) {
 		npm install grunt-contrib-compass --save-dev
 		npm install grunt-bower-task --save-dev
 		npm install grunt-photobox --save-dev
+		npm install grunt-autoprefixer --save-dev
 		
 		Simple Dependency Install:
 		--------------------------
@@ -77,23 +78,23 @@ module.exports = function(grunt) {
 		//Configuration de bower
 		//https://github.com/yatskevich/grunt-bower-task
 		bower: {
-		    install: {
-		      options: {
-		        targetDir			: './public/assets',
-		        install				: true,
-		        verbose				: true,
-		        cleanTargetDir		: false,
-		        cleanBowerDir		: false
-		      }
-		    }
+			install: {
+		    	options: {
+		        	targetDir			: './public/assets',
+					install				: true,
+					verbose				: true,
+					cleanTargetDir		: false,
+					cleanBowerDir		: false
+				}
+			}
 		},
 		
 		//Configuraton de imagemin
 		//https://github.com/gruntjs/grunt-contrib-imagemin
-		imagemin: {                          
+		imagemin: {
 			png: {                          
 				options: {                       
-                    optimizationLevel: 7
+                	optimizationLevel: 7
 				},                 
 				files: [
 				{
@@ -135,27 +136,27 @@ module.exports = function(grunt) {
 		//Configuration de handlebars
 		//https://github.com/gruntjs/grunt-contrib-handlebars
 		handlebars: {
-		  compile: {
-		    options: {
-		    	namespace 		: "Handlebars.templates",
-		    	partialRegex 	: /^\.partial\.handlebars/,
-		    	processName 	: function(filePath) {
-			    	 var pieces = filePath.split("/");
-					 return pieces[pieces.length - 1].split('.')[0]; 
-		    	},
-				processPartialName : function(filePath) { 
-					var pieces = filePath.split("/");
-					return pieces[pieces.length - 1].split('.')[0]; 
-				}
-		    },
-		    files: {
+			compile: {
+		    	options: {
+		    		namespace 		: "Handlebars.templates",
+					partialRegex 	: /^\.partial\.handlebars/,
+					processName 	: function(filePath) {
+						var pieces = filePath.split("/");
+						return pieces[pieces.length - 1].split('.')[0]; 
+					},
+					processPartialName : function(filePath) { 
+						var pieces = filePath.split("/");
+						return pieces[pieces.length - 1].split('.')[0]; 
+					}
+				},
+			files: {
 		    	"public/assets/js/templates/build/admin.js": "public/assets/js/templates/admin/*.handlebars",
 				"public/assets/js/templates/build/front.js": "public/assets/js/templates/front/*.handlebars"
-		    }
+			}
 		  }
 		},
 		
-		//Confiuration de photobox
+		//Configuration de photobox
 		//https://github.com/stefanjudis/grunt-photobox
 		photobox: {
 			task: {
@@ -165,7 +166,17 @@ module.exports = function(grunt) {
 					urls        : [ 'http://yoursite.com', 'http://yoursite.com/blog', 'http://yoursite.com/catalog' ]
 				}
 			}
-		}
+		},
+		//Configuration de autoprefixer
+		//https://github.com/nDmitry/grunt-autoprefixer
+	    autoprefixer: {
+	    	options: {
+	        	browsers: ["last 2 version", 'ff >= 4',  'ie 8', 'safari >= 5.1', 'opera >= 12']
+			},
+			no_dest: {
+		  		src: 'public/assets/css/front.css'
+		  	}
+		 }
 	});	
 	
 	//Import all module
@@ -180,7 +191,7 @@ module.exports = function(grunt) {
 	grunt.registerTask('first', ['bower']);
 	
 	//Distribution
-	grunt.registerTask('dist', ['compass:dist', 'imagemin:dist', 'handlebars:compile']);
+	grunt.registerTask('dist', ['compass:dist', 'imagemin:dist', 'handlebars:compile', 'autoprefixer']);
 
 	//Developpement
 	grunt.registerTask('dev', ['watch']);
