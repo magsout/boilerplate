@@ -28,6 +28,7 @@
     "grunt-contrib-imagemin"	: "~0.3.0",
     "grunt-contrib-handlebars"	: "~0.5.11",
     "load-grunt-tasks"			: "~0.2.0",
-    "grunt-autoprefixer" 		: "~0.4.0"
+    "grunt-autoprefixer" 		: "~0.4.0",
+    "grunt-contrib-cssmin"		: "~0.7.0"
   }
 }

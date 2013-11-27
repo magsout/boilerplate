@@ -23,6 +23,7 @@ npm install grunt-contrib-compass --save-dev
 npm install grunt-bower-task --save-dev
 npm install grunt-photobox --save-dev
 npm install grunt-autoprefixer --save-dev
+npm install grunt-contrib-cssmin --save-dev
 ```
 
 ## Simple Dependency Install:

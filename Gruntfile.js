@@ -19,6 +19,7 @@ module.exports = function(grunt) {
 		npm install grunt-bower-task --save-dev
 		npm install grunt-photobox --save-dev
 		npm install grunt-autoprefixer --save-dev
+		npm install grunt-contrib-cssmin --save-dev
 		
 		Simple Dependency Install:
 		--------------------------
@@ -176,7 +177,21 @@ module.exports = function(grunt) {
 			no_dest: {
 		  		src: 'public/assets/css/front.css'
 		  	}
-		 }
+		 },
+		//Configuration cssmin
+		//https://github.com/gruntjs/grunt-contrib-cssmin
+	    cssmin: {
+	    	options: {
+		    	report: 'gzip'
+	    	},
+			minify: {
+				expand : true,
+		    	cwd: 'public/assets/css',
+				src: ['*.css'],
+				dest: 'public/assets/css/dist',
+				ext: '.css'
+			}
+	    }
 	});	
 	
 	//Import all module
@@ -191,7 +206,7 @@ module.exports = function(grunt) {
 	grunt.registerTask('first', ['bower']);
 	
 	//Distribution
-	grunt.registerTask('dist', ['compass:dist', 'imagemin:dist', 'handlebars:compile', 'autoprefixer']);
+	grunt.registerTask('dist', ['compass:dist', 'imagemin', 'handlebars:compile', 'autoprefixer', 'cssmin']);
 
 	//Developpement
 	grunt.registerTask('dev', ['watch']);

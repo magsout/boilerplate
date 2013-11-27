@@ -17,7 +17,7 @@ images_dir =  'public/assets/images/'
 # Environnement de production : compass compile/watch sass/default.scss -e production
 
 if environment == :production
-  	output_style = :compressed
+  	output_style = :expanded
   	line_comments = false
   	sass_options = { :debug_info => false }  	
 
