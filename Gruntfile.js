@@ -126,7 +126,7 @@ module.exports = function(grunt) {
 		watch: {
 			css: {
 				files					: 'public/assets/sass/**/*.scss',
-				tasks					: ['compass:dev']
+				tasks					: ['compass:dev', 'autoprefixer']
 			},
 			script: {
 				files					: 'public/assets/js/templates/**/*.handlebars',
