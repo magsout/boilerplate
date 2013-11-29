@@ -24,9 +24,10 @@ npm install grunt-bower-task --save-dev
 npm install grunt-photobox --save-dev
 npm install grunt-autoprefixer --save-dev
 npm install grunt-contrib-cssmin --save-dev
+npm install grunt-combine-media-queries --save-dev
 ```
 
-## Simple Dependency Install:
+## Or simple Dependency Install:
 ```
 npm install 
 ```
