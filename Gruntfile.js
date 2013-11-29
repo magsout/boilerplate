@@ -221,7 +221,7 @@ module.exports = function(grunt) {
 	//Distribution
 	grunt.registerTask('dist', function(){
 		env = 'dist';
-		grunt.task.run('compass:dist', 'compass:dist','imagemin', 'handlebars:compile', 'autoprefixer', 'cssmin', 'cmq' );
+		grunt.task.run('compass:dist', 'compass:dist','imagemin', 'handlebars:compile', 'autoprefixer', 'cmq', 'cssmin' );
 
 	});
 
