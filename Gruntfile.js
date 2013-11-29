@@ -20,6 +20,7 @@ module.exports = function(grunt) {
 		npm install grunt-photobox --save-dev
 		npm install grunt-autoprefixer --save-dev
 		npm install grunt-contrib-cssmin --save-dev
+		npm install grunt-combine-media-queries --save-dev
 		
 		Simple Dependency Install:
 		--------------------------
@@ -191,7 +192,19 @@ module.exports = function(grunt) {
 				dest: 'public/assets/css/dist',
 				ext: '.css'
 			}
-	    }
+	    },
+		//Configuration grunt-combine-media-queries
+		//https://github.com/buildingblocks/grunt-combine-media-queries	    
+		cmq: {
+			options: {
+		    	log: true
+			},
+		    your_target: {
+		    	files: {
+		        	'assets/css': ['assets/css/*.css']
+				}
+			}
+		}
 	});	
 	
 	//Import all module
@@ -208,7 +221,7 @@ module.exports = function(grunt) {
 	//Distribution
 	grunt.registerTask('dist', function(){
 		env = 'dist';
-		grunt.task.run('compass:dist', 'compass:dist','imagemin', 'handlebars:compile', 'autoprefixer', 'cssmin' );
+		grunt.task.run('compass:dist', 'compass:dist','imagemin', 'handlebars:compile', 'autoprefixer', 'cssmin', 'cmq' );
 
 	});
 
