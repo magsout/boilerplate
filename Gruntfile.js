@@ -1,6 +1,6 @@
 module.exports = function(grunt) {
 
-
+		var env = 'dev';
 	/*
 		Grunt installation:
 		-------------------
@@ -172,7 +172,7 @@ module.exports = function(grunt) {
 		//https://github.com/nDmitry/grunt-autoprefixer
 	    autoprefixer: {
 	    	options: {
-	        	browsers: ["last 2 version", 'ff >= 4',  'ie 8', 'safari >= 5.1', 'opera >= 12']
+				browsers : ('dist' == env ? ['last 2 version'] : ['ff >= 4', 'ie >= 8', 'safari >= 5.1', 'opera >= 12'])
 			},
 			no_dest: {
 		  		src: 'public/assets/css/front.css'
@@ -206,10 +206,17 @@ module.exports = function(grunt) {
 	grunt.registerTask('first', ['bower']);
 	
 	//Distribution
-	grunt.registerTask('dist', ['compass:dist', 'imagemin', 'handlebars:compile', 'autoprefixer', 'cssmin']);
+	grunt.registerTask('dist', function(){
+		env = 'dist';
+		grunt.task.run('compass:dist', 'compass:dist','imagemin', 'handlebars:compile', 'autoprefixer', 'cssmin' );
+
+	});
 
 	//Developpement
-	grunt.registerTask('dev', ['watch']);
+	grunt.registerTask('dev',  function(){
+		env = 'dev';
+		grunt.task.run('watch');
+	});
 
 };
 
