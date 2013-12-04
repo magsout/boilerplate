@@ -76,6 +76,9 @@ module.exports = function(grunt) {
 		grunt.task.run('compass:clean', 'compass:dist','imagemin', 'handlebars:compile', 'autoprefixer', 'cmq', 'cssmin' );
 
 	});
+	//Clean projet (node_module, bower_component)
+	grunt.registerTask('clean', ['bower:clean', 'compass:clean']);	
+	
 
 	//Developpement
 	grunt.registerTask('dev',  function(){

@@ -12,6 +12,15 @@ module.exports = function(grunt) {
 				cleanTargetDir		: false,
 				cleanBowerDir		: false
 			}
+		},
+		clean: {
+	    	options: {
+	        	targetDir			: './assets',
+				install				: false,
+				verbose				: true,
+				cleanTargetDir		: true,
+				cleanBowerDir		: true
+			}			
 		}					
 	});
 };

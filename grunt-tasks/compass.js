@@ -21,6 +21,11 @@ module.exports = function(grunt) {
 			config				: 'config.rb',
 			watch				: true
 			}
-		}				
+		},
+		clean: {
+			options: {
+				clean	: true
+			}
+		}			
 	});
 };
