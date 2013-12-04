@@ -38,23 +38,23 @@ gem install image_optim
 ```
 
 ## Project Dependencies:
-# Install bower components
+### Install bower components
 ```
 grunt first
 ```
 
 ## Project watching dev
-# Watch compass and handlebars
+### Watch compass and handlebars
 ```
 grunt dev
 ```
 
 ## Project distribution
-# Compass compile production, Handlebars compile, Optimize png/jpeg, autoprefixer and Combine media queries
+### Compass compile production, Handlebars compile, Optimize png/jpeg, autoprefixer and Combine media queries
 ```grunt dist```
 
 ## Project clean
-# Clean bower component and compass compile
+### Clean bower component and compass compile
 ```grunt clean```
 
 ##  Inspired By
