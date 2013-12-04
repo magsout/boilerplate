@@ -70,7 +70,14 @@ Compass compile production, Handlebars compile, Optimize png/jpeg, autoprefixer 
 Clean bower component and compass compile
 ```grunt clean```
 
+## Also read
+
+- http://gruntjs.com/getting-started
+- http://bundler.io/
+- http://bower.io/
+
 ##  Inspired By
 
 - https://github.com/kud/marrow
 - https://github.com/Integralist/Grunt-Boilerplate
+
