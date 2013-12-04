@@ -8,64 +8,56 @@
     Var
 \*------------------------------------*/
 
-@import		"_base/_variable";
+@import		"_base/variable";
 
 /*------------------------------------*\
-    Function
+    Plugins
 \*------------------------------------*/
 
-@import		"_function/_helpers";
-@import 	"_function/_responsive";
+@import		"_plugins/mq";
 
 /*------------------------------------*\
-    Mixin
+    Helpers
 \*------------------------------------*/
 
-@import 	"_mixin/_helpers";
-@import 	"_mixin/_mixin";
-@import		"_mixin/_flexbox";
+@import 	"_helpers/helpers";
+@import 	"_helpers/mixin";
 
 /*------------------------------------*\
     Base classes
 \*------------------------------------*/
  
-@import 	"_base/_reset";
-@import		"_base/_font";
-@import		"_base/_global";
-@import		"_base/_sprite"; 
-@import		"_base/_icon-font";
+@import 	"_base/reset";
+@import		"_base/font";
+@import		"_base/global";
+@import		"_base/sprite"; 
+@import		"_base/icon-font";
 
 /*------------------------------------*\
-    JQuery classes
+    library classes
 \*------------------------------------*/
 
 
 
 /*------------------------------------*\
-    JQuery-ui classes
-\*------------------------------------*/
-
-
-
-/*------------------------------------*\
-    Helper classes
+    Components classes
 \*------------------------------------*/
  
-@import		"_helpers/_dropdown";
-@import 	"_helpers/_form";
-@import		"_helpers/_button";
-@import		"_helpers/_table";
-@import		"_helpers/_grid";
-@import		"_helpers/_tooltip";
+@import		"_helpers/dropdown";
+@import 	"_helpers/form";
+@import		"_helpers/button";
+@import		"_helpers/table";
+@import		"_helpers/grid";
+@import		"_helpers/tooltip";
 
 
 /*------------------------------------*\
     Application classes
 \*------------------------------------*/
   
-@import 	"_application/_layout";
-@import		"_application/_app";
-@import 	"_application/_ui";
+@import 	"_application/layout";
+@import		"_application/app";
+@import 	"_application/ui";
 
 /*------------------------------------*\
     Module classes
@@ -74,7 +66,7 @@
 
 
 /*------------------------------------*\
-    Responsive classes
+    Partials classes
 \*------------------------------------*/
  
-@import		"_responsive/_rwd";
+@import		"_partials/rwd";

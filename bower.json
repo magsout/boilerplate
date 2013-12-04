@@ -1,11 +1,11 @@
 {
   "name": "boilerplate",
-  "version": "0.1",
-  "dependencies": {
+  "version": "0.3",
+  "devDependencies": {
     "jquery"			: "~1.*",
+    "zeptojs"			: "*",
     "bootstrap-sass"	: "*",
     "handlebars.js"		: "*" ,
-	"backbone"			: "~1.0.*",
 	"sass-mq"			: "*"
   },
   "exportsOverride": {
@@ -13,9 +13,13 @@
 			"js/library": "**/*.js",
 			"sass/library": "**/*.css"
         },
+        "zeptojs": {                  
+			"js/library": "**/*.js",
+			"sass/library": "**/*.css"
+        },
         "bootstrap-sass": {                  
 			"js/library": "**/*.js",
-			"sass/library": "**/*.scss"
+			"sass/_library/vendors": "**/*.scss"
         },
         "handlebars.js": {                  
 			"js/plugin": "**/*.js"
@@ -24,7 +28,7 @@
 			"js/library": "**/*.js"
         },
         "sass-mq": {                  
-			"sass/library": "**/*.scss"
+			"sass/_plugins": "**/*.scss"
         }
     }    
 }
