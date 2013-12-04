@@ -50,6 +50,9 @@ grunt dev
 ## Project distribution
 ```grunt dist```
 
+## Project clean
+```grunt clean```
+
 ##  Inspired By
 
 - https://github.com/kud/marrow
