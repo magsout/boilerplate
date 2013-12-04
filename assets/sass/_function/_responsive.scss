@@ -1,0 +1,67 @@
+/**
+* Responsives function
+*
+* @author splitfire - http://splitfire.fr
+* @version 1.0
+*
+*/ 
+
+
+
+/**
+ * Récupère la directive min-width pour les média query du device spécifié
+ * @param string device
+ * @return string min-width
+ */
+@function mq-minWidth($device) 
+{
+	$deviceConfig : device($device);
+	@if(false == $deviceConfig) 
+	{
+		@warn "Device : #{$device} - min-width does not exist ";
+		@return false;
+	} 
+	@else 
+	{
+		@return unquote(nth($deviceConfig, 2));
+	}
+}
+
+/**
+ * Récupère la directive max-width pour les média query du device spécifié
+ * @param string device
+ * @return string max-width
+ */
+@function mq-maxWidth($device) 
+{
+	$deviceConfig : device($device);
+
+	@if(false == $deviceConfig) 
+	{
+		@warn "Device : #{$device} - max-width does not exist";
+		@return false;
+	} 
+	@else 
+	{
+		@return unquote(nth($deviceConfig, 3));
+	}
+}
+
+/**
+ * Récupère la configuration CSS du device spécifié
+ * @param string device
+ * @return string json de configuration
+ */
+@function mq-config($device) 
+{	
+	$deviceConfig : device(nth($device,1));
+	@if(false == $deviceConfig) 
+	{
+		@warn "Device : #{$device} - config does not exist";
+		@return false;
+	} 
+	@else 
+	{
+		@return nth($deviceConfig, 4);
+	}
+}
