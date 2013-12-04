@@ -5,13 +5,13 @@
 http_path = '/'
 
 #Repertoire css
-css_dir = 'public/assets/css/'
+css_dir = 'assets/css/'
 
 # Repertoire sass
-sass_dir = 'public/assets/sass/'
+sass_dir = 'assets/sass/'
 
 #Repertoire image
-images_dir =  'public/assets/images/'
+images_dir =  'assets/images/'
 
 
 # Environnement de production : compass compile/watch sass/default.scss -e production
