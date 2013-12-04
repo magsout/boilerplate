@@ -11,7 +11,20 @@ npm install -g grunt-cli
 git clone https://github.com/magsout/boilerplate.git
 ```
 
-## Project Dependencies:
+## Bundler installation:
+```
+sudo gem install bundler
+sudo gem install rubygems-bundler
+sudo gem regenerate_binstubs
+```
+
+## Project Gem Dependencies :
+Specify your dependencies in a Gemfile and install with: 
+```
+sudo bundle install --path vendors/bundle
+```
+
+## Project npm Dependencies:
 ```
 npm install grunt --save-dev
 npm install grunt-contrib-watch --save-dev
