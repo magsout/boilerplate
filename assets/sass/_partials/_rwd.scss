@@ -11,17 +11,35 @@
  *	Configuration module JS via media-queries
  *	idea: http://css-tricks.com/making-sass-talk-to-javascript-with-json/
  */
-
+ 
 body:before
 {
 	display: none;
-}
-@each $breakpoints in $breakpoints-config
-{
-	$config : mq-config($breakpoints);
-	@if(false != $config  ) 
+}    
+
+
+//Configuration list
+$mapKey-breakpoints  	: map-keys($mq-configs);
+$first-breakpoints		: first($mapKey-breakpoints);
+$last-breakpoints		: last($mapKey-breakpoints);
+
+@each $mq-breakpoint, $config in $mq-configs 
+{	
+	
+	@if( ($mq-breakpoint != $first-breakpoints) and ($mq-breakpoint != $last-breakpoints))
+	{	
+		$previousDevice 	: nth($mapKey-breakpoints, (index($mapKey-breakpoints,$mq-breakpoint) - 1)) ;	
+		@include mq(#{$previousDevice}, #{$mq-breakpoint}) 
+		{
+			body:before
+			{
+				content: $config;
+			}
+		}			
+	}
+	@else if ($mq-breakpoint == $first-breakpoints)
 	{
-		@include mq(nth($breakpoints,1)) 
+		@include mq($to :#{$mq-breakpoint}) 
 		{
 			body:before
 			{
@@ -29,6 +47,17 @@ body:before
 			}
 		}
 	}
+	@else if ($mq-breakpoint == $last-breakpoints)
+	{
+		@include mq($from : #{$mq-breakpoint}) 
+		{
+			body:before
+			{
+				content: $config;
+			}
+		}
+	}
+
 }
 
 
@@ -72,98 +101,106 @@ body:before
  **/
 
 
-/* old browser, class add by modernizr
+/* old browser
 ----------------*/
 .no-mq
 {
-
-	.hidden-on-full,
-	.visible-only-tablet,
-	.visible-only-phone
+	#html_wrapper
 	{
-		display: none;
+		& .hidden-on-full,
+		& .visible-only-tablet,
+		& .visible-only-phone
+		{
+			display: none;
+		}
+
 	}
 }
 
 /* mq destkop
 --------------*/
-@include mq($fromDevice:desktop, $toDevice: wide)
+@include mq($from:wide)
 {
-
-	.hidden-on-full,
-    .visible-only-tablet,
-    .visible-only-phone 
-    {
-        display: none;
-    }	
+	#html_wrapper
+	{
+		.hidden-on-full,
+	    .visible-only-tablet,
+	    .visible-only-phone 
+	    {
+	        display: none;
+	    }	
+	}
 }
 
 
 /* mq tablette
 ----------------*/
-@include mq(tablet)
+@include mq(phone, tablet)
 {
-
-	.hidden-on-tablet,
-    .visible-only-full,
-    .visible-only-phone 
-    {
-        display: none;
-	}
-	.tablet-no-float
+	#html_wrapper
 	{
-		float:none;
+		.hidden-on-tablet,
+	    .visible-only-full,
+	    .visible-only-phone 
+	    {
+	        display: none;
+		}
+		& .tablet-no-float
+		{
+			float:none;
+		}
+		& .tablet-wd-100
+		{
+			width: 100%;
+			display: block;
+			float: none;
+			margin-left:0;
+			margin-right:0;
+		}
 	}
-	.tablet-wd-100
-	{
-		width: 100%;
-		display: block;
-		float: none;
-		margin-left:0;
-		margin-right:0;
-	}	
 }
 
 /* mq phone
 ------------------*/
-@include mq($toDevice: phone) 
+@include mq($to:phone) 
 {
-
-    .hidden-on-phone,
-    .visible-only-full,
-    .visible-only-tablet 
-    {
-        display: none;
-    }
-	.phone-no-float
+	#html_wrapper
 	{
-		float:none;
+	    .hidden-on-phone,
+	    .visible-only-full,
+	    .visible-only-tablet 
+	    {
+	        display: none;
+	    }
+		& .phone-no-float
+		{
+			float:none;
+		}
+		& .phone-wd-100
+		{
+			width: 100%;
+			display: block;
+			float: none;
+			margin-left:0;
+			margin-right:0;
+		}
+		& .phone-wd-auto
+		{
+			width: auto;
+			margin-left:0;
+			margin-right:0;
+		}
+		& .phone-100
+		{
+			width: 100%;
+		}
+		& .row-fluid
+		{
+			> [class*="span"]
+			{
+				@extend .phone-wd-100;
+				margin-bottom:10px;
+			}
+		}
 	}
-	.phone-wd-100
-	{
-		width: 100%;
-		display: block;
-		float: none;
-		margin-left:0;
-		margin-right:0;
-	}
-	.phone-wd-auto
-	{
-		width: auto;
-		margin-left:0;
-		margin-right:0;
-	}
-	.phone-100
-	{
-		width: 100%;
-	}
-	
 }
-
- 
-
-
-
-
-
-
