@@ -82,7 +82,7 @@ module.exports = function(grunt) {
 		bower: {
 			install: {
 		    	options: {
-		        	targetDir			: './public/assets',
+		        	targetDir			: './assets',
 					install				: true,
 					verbose				: true,
 					cleanTargetDir		: false,
@@ -101,9 +101,9 @@ module.exports = function(grunt) {
 				files: [
 				{
 					expand				: true,                  
-					cwd					: 'public/assets/images/',                   
+					cwd					: 'assets/images/',                   
 					src					: ['**/*.png'],   
-					dest				: 'public/assets/images/'                  
+					dest				: 'assets/images/'                  
 				}]
 			},
             jpg: {
@@ -113,9 +113,9 @@ module.exports = function(grunt) {
                 files: [
                     {
 					expand				: true,                  
-					cwd					: 'public/assets/images/',                   
+					cwd					: 'assets/images/',                   
 					src					: ['**/*.jpg'],   
-					dest				: 'public/assets/images/'  
+					dest				: 'assets/images/'  
                     }
                 ]
             }
@@ -126,11 +126,11 @@ module.exports = function(grunt) {
 		//https://github.com/gruntjs/grunt-contrib-watch
 		watch: {
 			css: {
-				files					: 'public/assets/sass/**/*.scss',
+				files					: 'assets/sass/**/*.scss',
 				tasks					: ['compass:dev', 'autoprefixer']
 			},
 			script: {
-				files					: 'public/assets/js/templates/**/*.handlebars',
+				files					: 'assets/js/templates/**/*.handlebars',
 				tasks					: ['handlebars']
 			}		
 		},
@@ -152,8 +152,8 @@ module.exports = function(grunt) {
 					}
 				},
 			files: {
-		    	"public/assets/js/templates/build/admin.js": "public/assets/js/templates/admin/*.handlebars",
-				"public/assets/js/templates/build/front.js": "public/assets/js/templates/front/*.handlebars"
+		    	"assets/js/templates/build/admin.js": "assets/js/templates/admin/*.handlebars",
+				"assets/js/templates/build/front.js": "assets/js/templates/front/*.handlebars"
 			}
 		  }
 		},
@@ -176,7 +176,7 @@ module.exports = function(grunt) {
 				browsers : ('dist' == env ? ['last 2 version'] : ['ff >= 4', 'ie >= 8', 'safari >= 5.1', 'opera >= 12'])
 			},
 			no_dest: {
-		  		src: 'public/assets/css/front.css'
+		  		src: 'assets/css/front.css'
 		  	}
 		 },
 		//Configuration cssmin
@@ -187,9 +187,9 @@ module.exports = function(grunt) {
 	    	},
 			minify: {
 				expand : true,
-		    	cwd: 'public/assets/css',
+		    	cwd: 'assets/css',
 				src: ['*.css'],
-				dest: 'public/assets/css/dist',
+				dest: 'assets/css/dist',
 				ext: '.css'
 			}
 	    },
