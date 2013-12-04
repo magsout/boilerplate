@@ -14,14 +14,16 @@
     Plugins
 \*------------------------------------*/
 
-@import		"_plugins/mq";
-
+@import		"_plugins/sass-mq/mq";
+@import 	"SassyLists";
 /*------------------------------------*\
     Helpers
 \*------------------------------------*/
 
 @import 	"_helpers/helpers";
 @import 	"_helpers/mixin";
+@import		"_helpers/px2rem";
+
 
 /*------------------------------------*\
     Base classes
