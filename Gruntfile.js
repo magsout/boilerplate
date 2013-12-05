@@ -21,6 +21,7 @@ module.exports = function(grunt) {
 		npm install grunt-autoprefixer --save-dev
 		npm install grunt-contrib-cssmin --save-dev
 		npm install grunt-combine-media-queries --save-dev
+		npm install grunt-concurrent --save-dev
 		
 		Simple Dependency Install:
 		--------------------------
@@ -80,10 +81,16 @@ module.exports = function(grunt) {
 	grunt.registerTask('clean', ['bower:clean', 'compass:clean']);	
 	
 
+	//Watch
+	grunt.registerTask('watch',  function(){
+		env = 'dev';
+		grunt.task.run('watch');
+	});	
+
 	//Developpement
 	grunt.registerTask('dev',  function(){
 		env = 'dev';
-		grunt.task.run('watch');
+		grunt.task.run('concurrent');
 	});
 
 };

@@ -38,6 +38,7 @@ npm install grunt-photobox --save-dev
 npm install grunt-autoprefixer --save-dev
 npm install grunt-contrib-cssmin --save-dev
 npm install grunt-combine-media-queries --save-dev
+npm install grunt-concurrent --save-dev
 ```
 
 ## Or simple Dependency Install:
@@ -56,8 +57,8 @@ Install bower components
 grunt first
 ```
 
-## Project watching dev
-Watch compass and handlebars
+## Project dev
+Watch compass and handlebars using grunt-concurent
 ```
 grunt dev
 ```
