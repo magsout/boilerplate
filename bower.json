@@ -22,7 +22,7 @@
 			"sass/_library/vendors": "**/*.scss"
         },
         "handlebars.js": {                  
-			"js/plugin": "**/*.js"
+			"js/library": "**/*.js"
         },
         "backbone": {                  
 			"js/library": "**/*.js"

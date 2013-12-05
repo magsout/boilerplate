@@ -30,7 +30,8 @@
     "load-grunt-tasks"				: "~0.2.0",
     "grunt-autoprefixer" 			: "~0.4.0",
     "grunt-contrib-cssmin"			: "~0.7.0",
-    "grunt-combine-media-queries" 	: "*"
+    "grunt-combine-media-queries" 	: "*",
+    "grunt-concurrent"				: "*"	
 
   }
 }
