@@ -13,15 +13,15 @@ git clone https://github.com/magsout/boilerplate.git
 
 ## Bundler installation:
 ```
-sudo gem install bundler
-sudo gem install rubygems-bundler
-sudo gem regenerate_binstubs
+gem install bundler
+gem install rubygems-bundler
+gem regenerate_binstubs
 ```
 
 ## Project Gem Dependencies :
 Specify your dependencies in a Gemfile and install with: 
 ```
-sudo bundle install --path vendors/bundle
+gem bundle install --path vendors/bundle
 ```
 
 ## Project npm Dependencies:
