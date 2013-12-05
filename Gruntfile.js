@@ -79,13 +79,7 @@ module.exports = function(grunt) {
 	});
 	//Clean projet (node_module, bower_component)
 	grunt.registerTask('clean', ['bower:clean', 'compass:clean']);	
-	
 
-	//Watch
-	grunt.registerTask('watch',  function(){
-		env = 'dev';
-		grunt.task.run('watch');
-	});	
 
 	//Developpement
 	grunt.registerTask('dev',  function(){
