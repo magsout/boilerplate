@@ -39,6 +39,8 @@ npm install grunt-autoprefixer --save-dev
 npm install grunt-contrib-cssmin --save-dev
 npm install grunt-combine-media-queries --save-dev
 npm install grunt-concurrent --save-dev
+npm install --save time-grunt	
+
 ```
 
 ## Or simple Dependency Install:

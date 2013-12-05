@@ -22,6 +22,8 @@ module.exports = function(grunt) {
 		npm install grunt-contrib-cssmin --save-dev
 		npm install grunt-combine-media-queries --save-dev
 		npm install grunt-concurrent --save-dev
+		npm install --save time-grunt	
+
 		
 		Simple Dependency Install:
 		--------------------------
@@ -50,6 +52,9 @@ module.exports = function(grunt) {
 		 grunt.log.error("Json file is missing!")
 		 process.exit(1)
 	}
+	
+	//Grunt time
+	require('time-grunt')(grunt);
 
 	// Initialize config.
   	grunt.initConfig({
