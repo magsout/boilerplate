@@ -31,7 +31,8 @@
     "grunt-autoprefixer" 			: "~0.4.0",
     "grunt-contrib-cssmin"			: "~0.7.0",
     "grunt-combine-media-queries" 	: "*",
-    "grunt-concurrent"				: "*"	
+    "grunt-concurrent"				: "*",
+    "time-grunt"					: "*"	
 
   }
 }
