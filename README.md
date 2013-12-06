@@ -21,7 +21,7 @@ gem regenerate_binstubs
 ## Project Gem Dependencies :
 Specify your dependencies in a Gemfile and install with: 
 ```
-gem bundle install --path vendors/bundle
+bundle install --path vendors/bundle
 ```
 
 ## Project npm Dependencies:
