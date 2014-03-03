@@ -48,17 +48,17 @@ npm install --save time-grunt
 npm install 
 ```
 
-## Gem Dependencies:
-```
-gem install image_optim
-```
-
 ## Project Dependencies:
 Install bower components
 ```
 grunt first
 ```
-
+---
+##Project Gem Dependencies + Project npm Dependencies + Project Dependencies : one command
+```
+make init
+```
+---
 ## Project dev
 Watch compass and handlebars using grunt-concurent
 ```
