@@ -4,14 +4,17 @@
 # Root du projet
 http_path = '/'
 
-#Repertoire css
+#Folder css
 css_dir = 'assets/css/'
 
-# Repertoire sass
+# Folder sass
 sass_dir = 'assets/sass/'
 
-#Repertoire image
+#Folder image
 images_dir =  'assets/images/'
+
+#Folder Bower
+add_import_path 'assets/bower/sass/'
 
 
 # Environnement de production : compass compile/watch sass/default.scss -e production
@@ -28,3 +31,7 @@ else
 	sass_options = { :debug_info => true }
 	line_comments	= true
 end
+
+#Plugin
+require 'SassyLists'
+
