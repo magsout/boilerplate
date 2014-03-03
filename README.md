@@ -54,7 +54,7 @@ Install bower components
 grunt first
 ```
 ---
-##Project Gem Dependencies + Project npm Dependencies + Project Dependencies : one command
+##Gem + npm + Project Dependencies : one command
 ```
 make init
 ```
