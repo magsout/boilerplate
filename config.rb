@@ -14,7 +14,7 @@ sass_dir = 'assets/sass/'
 images_dir =  'assets/images/'
 
 #Folder Bower
-add_import_path 'assets/bower/sass/'
+add_import_path 'assets/bower/'
 
 
 # Environnement de production : compass compile/watch sass/default.scss -e production

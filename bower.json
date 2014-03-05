@@ -7,30 +7,7 @@
     "bootstrap-sass"	: "*",
     "handlebars.js"		: "*" ,
 	"sass-mq"			: "*"
-  },
-  "exportsOverride": {
-        "jquery": {                  
-			"js/library": "**/*.js",
-			"sass/library": "**/*.css"
-        },
-        "zeptojs": {                  
-			"js/library": "**/*.js",
-			"sass/library": "**/*.css"
-        },
-        "bootstrap-sass": {                  
-			"js/library": "**/*.js",
-			"sass/_library/vendors": "**/*.scss"
-        },
-        "handlebars.js": {                  
-			"js/library": "**/*.js"
-        },
-        "backbone": {                  
-			"js/library": "**/*.js"
-        },
-        "sass-mq": {                  
-			"sass/_plugins": "**/*.scss"
-        }
-    }    
+  }    
 }
 
 
