@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
-gem 'compass', 	'0.13.alpha.12'
+gem 'compass', 	'1.0.0.alpha.18'
 gem 'oily_png'
-gem 'sass',		'3.3.0.rc.2'
+gem 'sass',		'3.3.0'
 gem 'SassyLists'
 gem 'image_optim'
