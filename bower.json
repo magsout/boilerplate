@@ -6,7 +6,8 @@
     "zeptojs"			: "*",
     "bootstrap-sass"	: "*",
     "handlebars.js"		: "*" ,
-	"sass-mq"			: "*"
+	"sass-mq"			: "*",
+	"guss-rem"			: "*"
   }    
 }
 
