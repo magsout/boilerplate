@@ -5,7 +5,7 @@ module.exports = function(grunt) {
 	//https://github.com/nDmitry/grunt-autoprefixer
 	grunt.config('autoprefixer', {				
     	options: {
-			browsers : ('dist' == env ? ['ff >= 4', 'ie >= 8', 'safari >= 5.1', 'opera >= 12', 'Chrome >=10'] : ['last 2 version'])
+			browsers : ['ff >= 4', 'ie >= 8', 'safari >= 5.1', 'opera >= 12', 'chrome >=10']
 		},
 		no_dest: {
 	  		src: 'assets/css/front.css'
