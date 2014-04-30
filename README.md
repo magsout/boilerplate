@@ -42,10 +42,14 @@ make watch
 
 ## Project distribution
 Compass compile production, Handlebars compile, Optimize png/jpeg, autoprefixer and Combine media queries
-```make dist```
+```
+make dist
+```
 
 ## Project dependencies update
-```make update```
+```
+make update
+```
 
 ## Also read
 
