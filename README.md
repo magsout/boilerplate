@@ -31,6 +31,7 @@ Specify your dependencies in a bower.json
 ## Install project Dependencies:
 ```
 make init 
+```
 
 ---
 ## Project dev
