@@ -11,7 +11,7 @@ npm install -g grunt-cli
 git clone https://github.com/magsout/boilerplate.git
 ```
 
-## Bundler installation:
+## First Bundler installation system:
 ```
 gem install bundler
 gem install rubygems-bundler
@@ -19,59 +19,32 @@ gem regenerate_binstubs
 ```
 
 ## Project Gem Dependencies :
-Specify your dependencies in a Gemfile and install with: 
-```
-bundle install --path vendors/bundle
-```
+Specify your dependencies in a Gemfile 
+
 
 ## Project npm Dependencies:
+Specify your dependencies in a package.json 
+	
+## Project bower Dependencies:
+Specify your dependencies in a bower.json 
+	
+## Install project Dependencies:
 ```
-npm install grunt --save-dev
-npm install grunt-contrib-watch --save-dev
-npm install grunt-contrib-sass --save-dev
-npm install grunt-contrib-imagemin --save-dev
-npm install load-grunt-tasks --save-dev
-npm install grunt-contrib-handlebars --save-dev
-npm install grunt-contrib-compass --save-dev
-npm install grunt-bower-task --save-dev
-npm install grunt-photobox --save-dev
-npm install grunt-autoprefixer --save-dev
-npm install grunt-contrib-cssmin --save-dev
-npm install grunt-combine-media-queries --save-dev
-npm install grunt-concurrent --save-dev
-npm install --save time-grunt	
+make init 
 
-```
-
-## Or simple Dependency Install:
-```
-npm install 
-```
-
-## Project Dependencies:
-Install bower components
-```
-grunt first
-```
----
-##Gem + npm + Project Dependencies : one command
-```
-make init
-```
 ---
 ## Project dev
 Watch compass and handlebars using grunt-concurent
 ```
-grunt dev
+make watch
 ```
 
 ## Project distribution
 Compass compile production, Handlebars compile, Optimize png/jpeg, autoprefixer and Combine media queries
-```grunt dist```
+```make dist```
 
-## Project clean
-Clean bower component and compass compile
-```grunt clean```
+## Project dependencies update
+```make update```
 
 ## Also read
 
