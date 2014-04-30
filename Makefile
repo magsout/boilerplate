@@ -12,9 +12,15 @@ update:
 watch:
 	@ echo "❯ Watching..."
 	@ grunt dev
+
+watchOut:
+	@ echo "❯ Watching..."
+	@ grunt dev > grunt_log.txt
+
+see:
+	@ echo "❯ Watching..."
+	@ tail -F grunt_log.txt
 	
 dist:
 	@ echo "❯ Distribution..."
 	@ grunt dist
-	@ (cd js-compile; ./build.sh front)
-	@ (cd js-compile; ./build.sh admin)
