@@ -20,7 +20,7 @@ add_import_path 'assets/bower/'
 # Environnement de production : compass compile/watch sass/default.scss -e production
 
 if environment == :production
-  	output_style = :expanded
+  	output_style = :compressed
   	line_comments = false
   	sass_options = { :debug_info => false }  	
 
@@ -28,10 +28,10 @@ if environment == :production
 
 else
 	output_style = :expanded
+	sourcemap = true
 	sass_options = { :debug_info => true }
 	line_comments	= true
 end
 
 #Plugin
 require 'SassyLists'
-
