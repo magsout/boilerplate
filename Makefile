@@ -8,6 +8,7 @@ update:
 	@ echo "❯ Updating..."
 	@ npm update
 	@ bower update
+	@ bundle update
 
 watch:
 	@ echo "❯ Watching..."
