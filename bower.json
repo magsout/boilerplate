@@ -6,6 +6,7 @@
     "bootstrap-sass"			: "2.3.2",
 	"sass-mq"					: "*",
 	"guss-rem"					: "*",
-	"maintain-aspect-ratio-css" : "*"
+	"maintain-aspect-ratio-css" : "*",
+	"modernizr-mixin"			: "*"
   }
 }
