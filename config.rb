@@ -32,6 +32,3 @@ else
 	sass_options = { :debug_info => true }
 	line_comments	= true
 end
-
-#Plugin
-require 'SassyLists'

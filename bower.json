@@ -8,6 +8,7 @@
 	"guss-rem"					: "*",
 	"maintain-aspect-ratio-css" : "*",
 	"modernizr-mixin"			: "*",
-	"tooltips"					: "*"
+	"tooltips"					: "*",
+	"SassyLists"				: "*"
   }
 }
