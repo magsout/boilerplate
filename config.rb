@@ -22,13 +22,14 @@ add_import_path 'assets/bower/'
 if environment == :production
   	output_style = :compressed
   	line_comments = false
-  	sass_options = { :debug_info => false }  	
+  	sass_options = { :debug_info => false }  
+  	sourcemap = true
 
 # Environnement de developpement : compass compile/watch sass/default.scss
 
 else
 	output_style = :expanded
 	sourcemap = true
-	sass_options = { :debug_info => true }
-	line_comments	= true
+  	sass_options = { :debug_info => false }  
+  	line_comments = false
 end

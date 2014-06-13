@@ -10,8 +10,8 @@ module.exports = function(grunt) {
 		minify: {
 			expand : true,
 	    	cwd: 'assets/css',
-			src: ['*.css'],
-			dest: 'assets/css/dist',
+			src: ['**/*.css'],
+			dest: 'assets/build/stylesheets',
 			ext: '.css'
 		}					
 	});

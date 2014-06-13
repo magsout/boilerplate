@@ -9,7 +9,7 @@ module.exports = function(grunt) {
 		},
 	    your_target: {
 	    	files: {
-	        	'assets/css': ['assets/css/*.css']
+	        	'assets/css': ['assets/css/**/*.css']
 			}
 		}					
 	});
